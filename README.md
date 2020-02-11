@@ -2,7 +2,7 @@
 
 Division of Tasks
 1. Create RDF Schema - We have to create the schema and add triples to populate data. For Courses and Topics, they have to be automatically generated from https://www.concordia.ca/academics/graduate/calendar/current/encs/computer-science-courses.html
-a. (Guenole) Universities
+	- (Guenole) Universities
 	- (Walid) Courses
 	- (Melanie) Topics extracted from Courses + URI 
 	- (Alex) Students (min. 10)
