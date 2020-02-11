@@ -6,7 +6,6 @@ Division of Tasks
 	b. (Walid) Courses
 	c. (Melanie) Topics extracted from Courses + URI 
 	d. (Alex) Students (min. 10)
-
 2. (Walid + Melanie) Automated Knowledge Base Construction
 3. (Guenole + Alex) Knowledge Base Queries (#1-#6)
 4. (All) Report
