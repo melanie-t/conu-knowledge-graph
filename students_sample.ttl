@@ -1,0 +1,61 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix focu: <http://focu.io/schema#> .
+@prefix focudata: <http://focu.io/data#> .
+
+focu:Student
+	a rdf:Class;
+	rdfs:subClassOf foaf:Person;
+	rdfs:label "Student"@en .
+
+focu:Professor
+	a rdfs:Class;
+	rdfs:subClassOf foaf:Person ;
+	rdfs:label "Professor"@en .
+
+focu:University
+	a rdfs:Class ;
+	rdfs:subClassOf foaf:Organization ;
+	rdfs:label "University"@en .
+
+focu:teaches
+	a rdf:Property;
+	rdfs:label "teaches"@en ;
+	rdfs:comment "Relationship showing professors teach the students." ;
+	rdfs:domain focu:Professor ;
+	rdfs:range focu:Student .
+
+focu:enrolledAt
+	a rdf:Property ;
+	rdfs:label "enrolled at"@en ;
+	rdfs:comment "Relationhsip showing students enrolled at a university." ;
+	rdfs:domain focu:Professor ;
+	rdfs:range focu:Student .
+
+focu:enrolledAt
+	rdfs:label "enrolled at"@en ;
+	rdfs:comment "Relationship showing students enrolled at a university." ;
+	rdfs:domain focu:Student ;
+	rdfs:range focu:University .
+
+focudata:cu
+	a focu:University ;
+	rdfs:seeAlso <http://dbpedia.org/resource/Concordia_University> .
+
+focudata:john
+	a focu:Student ;
+	foaf:givenName "John" ;
+	foaf:familyName "Smith" ;
+	focu:enrolledAt focudata:cu ;
+	foaf:age "22" ;
+	rdfs:label "John Smith" .
+
+focudata:rene
+	a focu:Professor ;
+	foaf:givenName "Rene" ;
+	foaf:familyName "Witte" ;
+	focu:teaches focudata:john ;
+	foaf:age "23" ;
+	rdfs:label "Rene Witte" .
