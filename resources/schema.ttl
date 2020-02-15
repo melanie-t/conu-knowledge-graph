@@ -1,0 +1,89 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix focu: <http://focu.io/schema#> .
+@prefix focudata: <http://focu.io/data#> .
+
+# Classes
+focu:University
+	a rdfs:Class ;
+	rdfs:subClassOf foaf:Organization ;
+	rdfs:label "University"@en .
+
+focu:Course
+	a rdfs:Class;
+	rdfs:label "Course"@en .
+
+focu:Topic
+	a rdfs:Class;
+	rdfs:label "Topic"@en .
+
+focu:Student
+	a rdf:Class;
+	rdfs:subClassOf foaf:Person;
+	rdfs:label "Student"@en .
+
+# Relations
+focu:coursesOffered
+	a rdf:Property ;
+	rdfs:label "courses offered"@en ;
+	rdfs:comment "Relationship showing courses offered at a university" ;
+	rdfs:domain focu:University ;
+	rdfs:range focu:Course .
+
+focu:completedCourses
+	a rdf:Property ;
+	rdfs:label "completed course"@en ;
+	rdfs:comment "Relationship showing courses that a student has completed" ;
+	rdfs:domain focu:Student ;
+	rdfs:range focu:Course .
+
+focu:enrolledAt
+	rdfs:label "enrolled at"@en ;
+	rdfs:comment "Relationship showing students enrolled at a university." ;
+	rdfs:domain focu:Student ;
+	rdfs:range focu:University .
+
+# Data
+focudata:cu
+	a focu:University ;
+	rdfs:seeAlso <http://dbpedia.org/resource/Concordia_University> .
+
+focudata:john
+	a focu:Student ;
+	foaf:givenName "John" ;
+	foaf:familyName "Smith" ;
+	foaf:mbox "john_smith@mail.concordia.ca" ;
+	focu:enrolledAt focudata:cu ;
+	rdfs:label "John Smith" .
+
+
+# Removed from original
+
+# focu:teaches
+# 	a rdf:Property;
+# 	rdfs:label "teaches"@en ;
+# 	rdfs:comment "Relationship showing professors teach the students." ;
+# 	rdfs:domain focu:Professor ;
+# 	rdfs:range focu:Student .
+
+# focu:Professor
+# 	a rdfs:Class;
+# 	rdfs:subClassOf foaf:Person ;
+# 	rdfs:label "Professor"@en .
+
+# focu:enrolledAt
+# 	a rdf:Property ;
+# 	rdfs:label "enrolled at"@en ;
+# 	rdfs:comment "Relationhsip showing students enrolled at a university." ;
+# 	rdfs:domain focu:Professor ;
+# 	rdfs:range focu:Student .
+
+# focudata:rene
+# 	a focu:Professor ;
+# 	foaf:givenName "Rene" ;
+# 	foaf:familyName "Witte" ;
+# 	focu:teaches focudata:john ;
+# 	foaf:age "23" ;
+# 	rdfs:label "Rene Witte" .
