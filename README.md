@@ -1,4 +1,10 @@
 # COMP474_A1_W20
+Setting Up The Project
+1. Clone the repository
+2. Open the COMP474_A1_W20 folder as a PyCharm project
+3. Add an existing interpreter </br>
+	File -> Settings -> Project: COMP474_A1_W20 -> Project Interpreter -> Top right cog -> Add -> Virtualenv Environment -> Existing Environment -> [...] -> [...]\COMP474_A1_W20\venv\Scripts\python.exe (Navigate to project repo)
+
 Version: Python 3.8
 
 Division of Tasks
