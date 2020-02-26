@@ -1,2 +1,2 @@
+# Ignore IDE configurations
 .idea/
-venv/pyvenv.cfg
