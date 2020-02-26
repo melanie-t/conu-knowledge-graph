@@ -1,7 +1,8 @@
 import requests
 import urllib.parse
 import json
-from venv.courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt
+from src.courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt
+
 
 class SpotlightAssociations:
 

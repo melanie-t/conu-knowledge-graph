@@ -1,5 +1,5 @@
 import re
-from venv.courseExtraction.Course import Course
+from src.courseExtraction.Course import Course
 
 """
 This script extracts analyzes a single HTML file and searches for courses in it.
@@ -78,7 +78,7 @@ class CourseDataParser:
         :param acronymsSearchedFor: list of acronyms (COMP, ACCO, etc.) representing classes.
         :return: list of courses
         """
-        file = open(pathToFile,'r')
+        file = open(pathToFile,'r', encoding="latin-1")
         file_contents = file.readlines()
         file.close()
 
@@ -103,11 +103,11 @@ class CourseDataParser:
 
         return course_list
 
-"""
-if __name__ == '__main__':
-    # http://www.concordia.ca/academics/undergraduate/calendar/current/courses-quick-links.html
 
-    CourseDataParser.extractCoursesFromFile("../CoursePagesHtml/AHSC.html",["AHSC"])
-"""
+# if __name__ == '__main__':
+#     # http://www.concordia.ca/academics/undergraduate/calendar/current/courses-quick-links.html
+#
+#     CourseDataParser.extractCoursesFromFile("../CoursePagesHtml/AHSC.html",["AHSC"])
+
 
 

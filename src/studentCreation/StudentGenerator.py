@@ -1,5 +1,5 @@
-from venv.studentCreation.Student import Student
-from venv.studentCreation.Term import TermSeasons
+from src.studentCreation.Student import Student
+from src.studentCreation.Term import TermSeasons
 
 
 class StudentGenerator:

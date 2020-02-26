@@ -1,7 +1,7 @@
 from rdflib import URIRef, Graph, Literal
 from rdflib.namespace import RDF, RDFS
-from venv.courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt
-from venv.studentCreation.StudentGenerator import StudentGenerator
+from src.courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt
+from src.studentCreation.StudentGenerator import StudentGenerator
 
 courses_namespace_uri = "http://www.example.org/course/"
 property_uri = "http://www.example.org/property/"

@@ -1,5 +1,5 @@
-from venv.studentCreation.StudentCourseEntry import StudentCourseEntry
-from venv.studentCreation.Term import Term
+from src.studentCreation.StudentCourseEntry import StudentCourseEntry
+from src.studentCreation.Term import Term
 
 class Student:
     def __init__(self, name, id, email):
