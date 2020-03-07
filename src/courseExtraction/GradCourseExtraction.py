@@ -1,5 +1,6 @@
 import requests
 import re
+
 from src.courseExtraction.Course import Course
 
 all_grad_urls = ["https://www.concordia.ca/academics/graduate/calendar/current/fasc/ahsc-dip.html#diploma-courses",
@@ -44,23 +45,43 @@ all_grad_urls = ["https://www.concordia.ca/academics/graduate/calendar/current/f
 "https://www.concordia.ca/academics/graduate/calendar/current/encs/engineering-courses.html",
 "https://www.concordia.ca/academics/graduate/calendar/current/encs/computer-science-courses.html"]
 
+file_names = 	['AHSC','JOUR','FTRA-MA','FTRA-CERT','THEO','SOCI','ANTH','RELI','POLI',
+				'PSYC-PHD','PSYC-MA','POLI','PHIL','COMS','MAST-PHD','MAST-MA','RELI',
+				'JOUR','ADIP','CHEM-MA','BIOL-PHD','BIOL-MSC','APLI','GEOG-PHD','GEOG-MSC',
+				'GEOG-MENV','GEOG-MA','ENGL-PHD','ENGL-MA','ETEC','ESTU','EDUC','ECON-PHD',
+				'ECON-MA','SCPA','COMS-MA','COMS-PHD','CHST','CHEM-PHD','ENGR','COMP']
+path_to_course_pages = 'GraduateCoursePagesHtml/'
 def return_first_match(text, regex):
     try:
         result = re.findall(regex, text)[0]
     except Exception as IndexError:
         result = ''
     return result
+def file_get_contents(filename):
+    with open(filename) as f:
+        return f.read()
+def downloadGradHTML():
+    print('DOWNLOADING GRADUATE CLASSES')
+    print('Same number of urls as file names? ', len(file_names) == len(all_grad_urls))
+
+    for i in range(len(all_grad_urls)):
+        response = requests.get(all_grad_urls[i])
+        file = open('GraduateCoursePagesHtml/' + file_names[i] + '.html', 'w', encoding="latin-1")
+        output = re.sub("&nbsp;", "", (response.text).encode("ascii", errors="ignore").decode())
+        file.write(output)
+        file.close()
 
 class GradCourseExtraction:
     @staticmethod
     def extractGradCourses():
+        downloadGradHTML()
         courseList = []
-        for i in range(len(all_grad_urls)):
-            p = all_grad_urls[i]
-            print(p)
-            r = requests.get(p)
-            source = re.sub("&nbsp;", "", r.text)
-            # result = re.findall(r"(<p><span class=\"large-text\"><b>[A-Z]+ [0-9]+ (.?)*[\s]*(.?)*)", source)
+
+        #for i in range(len(files_from_dir)):
+        for i in range(len(file_names)):
+            filePath = path_to_course_pages+file_names[i]+'.html'
+            r = file_get_contents(filePath)
+            source = re.sub("&nbsp;", "", r)
             result = re.findall(
                 r"(<p><span class=\"large-text\"><b>[A-Z]+ [0-9]+ (.?)*[\s]*(<i>Prerequisite:(.?)*[\s]*)*(.?)*)",
                 source)
