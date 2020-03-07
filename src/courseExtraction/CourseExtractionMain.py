@@ -4,6 +4,7 @@ import errno
 
 from src.courseExtraction import CourseDataCollector
 from src.courseExtraction.CourseDataParser import CourseDataParser
+from src.courseExtraction.GradCourseExtraction import GradCourseExtraction
 
 
 # Source: https://stackoverflow.com/questions/273192/how-can-i-safely-create-a-nested-directory/14364249#14364249
@@ -63,18 +64,19 @@ if __name__ == '__main__':
     files_from_dir = [f for f in listdir(path_to_course_pages) if isfile(join(path_to_course_pages, f))]
 
     file = open(path_to_courses, 'w', encoding="latin-1")
-
+    course_list = GradCourseExtraction.extractGradCourses()
+    #course_list = []
     for i in range(len(files_from_dir)):
         acronym_file = files_from_dir[i].split('.')[0]
         # find right acronym to search for based on name of file (if list of acronyms, match with first one)
         for j in range(len(acronyms_to_search)):
             if acronym_file == acronyms_to_search[j][0]:
-                course_list = CourseDataParser.extractCoursesFromFile(path_to_course_pages+files_from_dir[i], acronyms_to_search[j])
+                course_list += CourseDataParser.extractCoursesFromFile(path_to_course_pages+files_from_dir[i], acronyms_to_search[j])
                 # write courses to file
                 for k in range(len(course_list)):
                     file.write(str(course_list[k].subject)+' '+str(course_list[k].number)+' \"'+str(course_list[k].title)+'\" \"'+str(course_list[k].description)+'\"\n')
                     print(str(course_list[k].number)+' '+str(course_list[k].subject)+' '+str(course_list[k].title))
                 print("Analysis of file "+files_from_dir[i]+" complete.")
                 break
-
+    print(len(course_list), " courses have been processed")
     file.close()
