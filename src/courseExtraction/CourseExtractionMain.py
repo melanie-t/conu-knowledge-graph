@@ -14,6 +14,15 @@ def make_sure_path_exists(path):
     except OSError as exception:
         if exception.errno != errno.EEXIST:
             raise
+
+def isCourseNotInList(courseList, courseObj):
+    isInCourse = True
+
+    for i in range(len(courseList)):
+        print(courseList[i].subject, ' ', courseList[i].number, ' vs ', courseObj.subject, ' ', courseObj.number)
+        if(courseList[i].subject == courseObj.subject and courseList[i].number == courseObj.number):
+            isInCourse = False
+    return isInCourse
 # End source
 
 """
@@ -64,7 +73,7 @@ if __name__ == '__main__':
     files_from_dir = [f for f in listdir(path_to_course_pages) if isfile(join(path_to_course_pages, f))]
 
     file = open(path_to_courses, 'w', encoding="latin-1")
-    """
+
     course_list = GradCourseExtraction.extractGradCourses()
     #course_list = []
     for i in range(len(files_from_dir)):
@@ -80,5 +89,14 @@ if __name__ == '__main__':
                 print("Analysis of file "+files_from_dir[i]+" complete.")
                 break
     print(len(course_list), " courses have been processed")
-    """
+
+    filtered_courses = []
+    for i in range(len(course_list)):
+        if(isCourseNotInList(filtered_courses, course_list[i])):
+            filtered_courses.append(course_list[i])
+        else:
+            print(course_list[i].subject, " ", course_list[i].number, " is a duplicate")
+    course_list = filtered_courses
+    print(len(course_list), " courses remained")
+
     file.close()
