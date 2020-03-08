@@ -3,14 +3,14 @@ import urllib.parse
 import json
 from src.courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt
 
+CONFIDENCE = .60
 
 class SpotlightAssociations:
-
     # there is also the @confidence that could be taken
     @staticmethod
     def get_keywords_from_text(text):
         url_encoded_text = urllib.parse.quote_plus(text)
-        url = "https://api.dbpedia-spotlight.org/en/annotate?text="+url_encoded_text
+        url = "https://localhost:2222/rest/annotate?confidence="+str(CONFIDENCE) + "&text="+url_encoded_text
         response_details = requests.get(url, headers={"Accept":"application/json"})
         parsed_response = json.loads(response_details.content)
 
@@ -24,7 +24,7 @@ class SpotlightAssociations:
     @staticmethod
     def __get_keywords_from_text_to_file(text, fileURI):
         url_encoded_text = urllib.parse.quote_plus(text)
-        url = "https://api.dbpedia-spotlight.org/en/annotate?text=" + url_encoded_text
+        url = "https://localhost:2222/annotate?confidence="+str(CONFIDENCE) + "&text="+url_encoded_text
         response_details = requests.get(url, headers={"Accept": "application/json"})
         parsed_response = json.loads(response_details.content)
 
