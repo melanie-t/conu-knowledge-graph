@@ -2,7 +2,6 @@ from rdflib import URIRef, Graph, Literal
 from rdflib.namespace import RDF, RDFS
 from src.courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt
 from src.studentCreation.StudentGenerator import StudentGenerator
-
 courses_namespace_uri = "http://www.example.org/course/"
 property_uri = "http://www.example.org/property/"
 student_namespace_uri = "http://www.example.org/student/"
@@ -20,6 +19,7 @@ g = Graph()
 g.add((URIRef(dbpedia_page_uri+"Concordia_University"), URIRef(dbpedia_ontology_uri+"type"), URIRef(dbpedia_page_uri+"Public_university")))
 g.add((URIRef(dbpedia_page_uri+"Concordia_University"), URIRef(dbpedia_property_uri+"uniname"), Literal("Concordia University"))) # name
 
+print("Parsing")
 # get the courses
 CourseExtractorFromTxt.path_to_courses = '../courseExtraction/courses.txt'
 courses_list = CourseExtractorFromTxt.get_course_list()
@@ -28,6 +28,7 @@ courses_list = CourseExtractorFromTxt.get_course_list()
 # then create a deeper level for identification (number of class)
 # when in that deeper level, each node will have a title and a description
 observed_acronym = ''
+
 for i in range(len(courses_list)):
     if len(observed_acronym) == 0:
         observed_acronym = courses_list[i].subject
@@ -49,15 +50,15 @@ for i in range(len(courses_list)):
 
 # now add the students
 StudentGenerator.generate_students_classes()
-students = StudentGenerator.student_list
+students = StudentGenerator.generate_students_classes()
 
 for i in range(len(students)):
     g.add((URIRef(student_namespace_uri+students[i].email), URIRef(schema_namespace_uri+'name'), Literal(students[i].name)))
     g.add((URIRef(student_namespace_uri+students[i].email), URIRef(property_uri+"identified_by"), Literal(students[i].id)))
     g.add((URIRef(student_namespace_uri+students[i].email), RDF.type, URIRef(student_namespace_uri+"Student")))
 
-    for j in range(len(students.curriculum)):
-        course_uri = courses_namespace_uri+students[i].curriculum[j].subject+'/'+students[i].curriculum[j].number
+    for j in range(len(students[i].curriculum)):
+        course_uri = courses_namespace_uri+students[i].curriculum[j].subject+'/'+str(students[i].curriculum[j].number)
         # used year with semester because student cannot do the same course twice in a single semester
         student_course_registration_uri = course_uri+'/'+students[i].email+'/'+students[i].curriculum[j].getTermSemester()\
                                           +'/'+students[i].curriculum[j].term.year
@@ -80,4 +81,4 @@ for i in range(len(students)):
         g.add((URIRef(semester_namespace_uri+students[i].curriculum[j].getTermSemester()), RDF.type,
                URIRef(semester_namespace_uri+"TermSeason")))
 
-g.serialize(destination='output.ttl', format='turtle')
+    g.serialize(destination='output.ttl', format='turtle')

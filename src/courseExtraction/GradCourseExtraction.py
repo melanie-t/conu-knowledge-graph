@@ -93,7 +93,7 @@ class GradCourseExtraction:
                 courseTitle = return_first_match(s, r"<p><span class=\"large-text\"><b>[A-Za-z]+ [0-9]+[\s]*([^<]*)")
                 # courseDesc = return_first_match(s, r"<p><span class=\"large-text\"><b>[A-Z]+ [0-9]+ (.?)*[\s]*((.?)*)")[1]
                 courseDesc = return_first_match(s,r"<p><span class=\"large-text\"><b>[A-Z]+ [0-9]+ (.?)*[\s]*((<i>Prerequisite:(.?)*[\s]*)*(.?)*)")[1]
-                courseDesc2 = re.sub(r"<[^>]*>", "", courseDesc)
+                courseDesc2 = re.sub(r"<[^>]*>", "", courseDesc).replace('\n', ' ').replace('\r', '')
                 courseList.append(Course(number, subject, courseTitle, courseDesc2))
 
         count = 1
