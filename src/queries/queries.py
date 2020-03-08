@@ -23,6 +23,26 @@ def make_sure_path_exists(path):
             raise
 # End source
 
+prefix = ''
+# Import prefixes from ttl
+try:
+    # Source: https://stackabuse.com/read-a-file-line-by-line-in-python/
+    filepath = '../rdfPopulator/output.ttl'
+    with open(filepath) as f:
+        line = f.readline()
+        cnt = 1
+        while line:
+            line = f.readline()
+            if line in ['\n', '\r\n']:
+                break
+            prefix = prefix + line
+            cnt += 1
+finally:
+    f.close()
+
+prefix = prefix.replace("@prefix", "PREFIX")
+prefix = prefix.replace(".", "")
+
 g = Graph()
 g.parse("../rdfPopulator/output.ttl", format="turtle")
 
@@ -37,7 +57,7 @@ q1 = open("./sparql_queries/"+file_query, "r")
 q1_response = open("./output/"+file_output, "w")
 
 # Counts the nb of triples in the KB
-res1 = g.query(q1.read())
+res1 = g.query(prefix + q1.read())
 
 res2 = g.query("""
     SELECT 
