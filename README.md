@@ -1,5 +1,16 @@
 # COMP474_A1_W20
-Setting Up The Project
+
+Setting Up DBPedia Spotlight Server</br>
+1. Download the files below into the same directory</br>
+[DBPedia Spotlight](https://sourceforge.net/projects/dbpedia-spotlight/files/spotlight/dbpedia-spotlight-1.0.0.jar/download) (190MB) </br>
+[DBPedia Spotlight Model (2016-10/en)](https://sourceforge.net/projects/dbpedia-spotlight/files/2016-10/en/model/en.tar.gz/download) (1.8 GB)
+2. Navigate to the project directory extract the model by running on the command line: </br>
+```tar xzf en.tar.gz```
+3. Navigate to the directory with the files downloaded above and run on command line: </br>
+```java -jar -Xms64m -Xmx1g dbpedia-spotlight-1.0.0.jar en http://localhost:2222/rest```
+
+
+Setting up the Project
 1. Clone the repository
 2. Navigate to COMP474_A1_W20\venv\pyvenv.cfg
 	Change home directory to your Python installation </br>
