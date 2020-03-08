@@ -89,7 +89,7 @@ if __name__ == '__main__':
                 print("Analysis of file "+files_from_dir[i]+" complete.")
                 break
     print(len(course_list), " courses have been processed")
-
+    """
     filtered_courses = []
     for i in range(len(course_list)):
         if(isCourseNotInList(filtered_courses, course_list[i])):
@@ -98,5 +98,5 @@ if __name__ == '__main__':
             print(course_list[i].subject, " ", course_list[i].number, " is a duplicate")
     course_list = filtered_courses
     print(len(course_list), " courses remained")
-
+    """
     file.close()

@@ -29,7 +29,7 @@ if __name__ == '__main__':
     # then create a deeper level for identification (number of class)
     # when in that deeper level, each node will have a title and a description
     observed_acronym = ''
-    """
+
     for i in range(len(courses_list)):
         if len(observed_acronym) == 0:
             observed_acronym = courses_list[i].subject
@@ -48,7 +48,7 @@ if __name__ == '__main__':
             g.add((uri_to_number, RDFS.label, Literal(courses_list[i].description))) # set description as label
             g.add((uri_to_number, URIRef(schema_namespace_uri+'name'), Literal(courses_list[i].title))) # set title as name
             i+=1
-    """
+
     # now add the students
     StudentGenerator.generate_students_classes()
     students = StudentGenerator.generate_students_classes()
