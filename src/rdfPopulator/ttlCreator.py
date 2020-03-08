@@ -50,12 +50,14 @@ for i in range(len(courses_list)):
 # now add the students
 StudentGenerator.generate_students_classes()
 students = StudentGenerator.student_list
-
+print("adding students")
+print(len(students))
 for i in range(len(students)):
+
     g.add((URIRef(student_namespace_uri+students[i].email), URIRef(schema_namespace_uri+'name'), Literal(students[i].name)))
     g.add((URIRef(student_namespace_uri+students[i].email), URIRef(property_uri+"identified_by"), Literal(students[i].id)))
     g.add((URIRef(student_namespace_uri+students[i].email), RDF.type, URIRef(student_namespace_uri+"Student")))
-
+    print("lala")
     for j in range(len(students.curriculum)):
         course_uri = courses_namespace_uri+students[i].curriculum[j].subject+'/'+students[i].curriculum[j].number
         # used year with semester because student cannot do the same course twice in a single semester
