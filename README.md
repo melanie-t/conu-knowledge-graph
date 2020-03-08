@@ -1,14 +1,13 @@
 # COMP474_A1_W20
 
 Setting Up DBPedia Spotlight Server</br>
-1. Download the files below into the same directory</br>
+1. Download the files below into the project's main directory (/COMP474_A1_W20/)</br>
 [DBPedia Spotlight](https://sourceforge.net/projects/dbpedia-spotlight/files/spotlight/dbpedia-spotlight-1.0.0.jar/download) (190MB) </br>
 [DBPedia Spotlight Model (2016-10/en)](https://sourceforge.net/projects/dbpedia-spotlight/files/2016-10/en/model/en.tar.gz/download) (1.8 GB)
-2. Navigate to the project directory extract the model by running on the command line: </br>
-```tar xzf en.tar.gz```
-3. Navigate to the directory with the files downloaded above and run on command line: </br>
-```java -jar -Xms64m -Xmx1g dbpedia-spotlight-1.0.0.jar en http://localhost:2222/rest```
+2. Navigate to the project directory extract the model by running ```server_1_extract_en.sh``` </br>
 
+3. Run ```server_2_init.sh``` to start the server.</br>
+4. When the server has been initialized, run ```server_3_test.sh``` to test that the server is running. It should return annotations.</br>
 
 Setting up the Project
 1. Clone the repository
