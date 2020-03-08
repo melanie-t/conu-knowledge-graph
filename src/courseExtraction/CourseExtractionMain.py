@@ -83,11 +83,13 @@ if __name__ == '__main__':
             if acronym_file == acronyms_to_search[j][0]:
                 course_list += CourseDataParser.extractCoursesFromFile(path_to_course_pages+files_from_dir[i], acronyms_to_search[j])
                 # write courses to file
-                for k in range(len(course_list)):
-                    file.write(str(course_list[k].subject)+' '+str(course_list[k].number)+' \"'+str(course_list[k].title)+'\" \"'+str(course_list[k].description)+'\"\n')
-                    print(str(course_list[k].number)+' '+str(course_list[k].subject)+' '+str(course_list[k].title))
+
                 print("Analysis of file "+files_from_dir[i]+" complete.")
                 break
+    for k in range(len(course_list)):
+        file.write(str(course_list[k].subject) + ' ' + str(course_list[k].number) + ' \"' + str(
+            course_list[k].title) + '\" \"' + str(course_list[k].description) + '\"\n')
+        print(str(course_list[k].number) + ' ' + str(course_list[k].subject) + ' ' + str(course_list[k].title))
     print(len(course_list), " courses have been processed")
     """
     filtered_courses = []
