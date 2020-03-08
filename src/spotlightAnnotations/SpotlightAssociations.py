@@ -1,3 +1,5 @@
+from json import JSONDecodeError
+
 import requests
 import urllib.parse
 import json
@@ -26,7 +28,11 @@ class SpotlightAssociations:
         url_encoded_text = urllib.parse.quote_plus(text)
         url = "https://localhost:2222/annotate?confidence="+str(CONFIDENCE) + "&text="+url_encoded_text
         response_details = requests.get(url, headers={"Accept": "application/json"})
-        parsed_response = json.loads(response_details.content)
+        parsed_response = ''
+        try:
+            parsed_response = json.loads(response_details.content.decode("utf-8"))
+        except JSONDecodeError as e:
+            print(e)
 
         if 'Resources' in parsed_response:
             outputfile = open(fileURI,'a')

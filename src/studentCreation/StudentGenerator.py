@@ -22,6 +22,9 @@ class StudentGenerator:
     @staticmethod
     def generate_students_classes():
         student_list = StudentGenerator.__generate_students()
+        student_list[0].addCourseToCurriculum('COMP', 108, TermSeasons.SUMMER, '2019', 88)
+        student_list[0].addCourseToCurriculum('ADED', 202, TermSeasons.WINTER, '2016', 44)
+        student_list[0].addCourseToCurriculum('TESL', 491, TermSeasons.FALL, '2015', 83)
         student_list[1].addCourseToCurriculum('COMP',108, TermSeasons.FALL, '2019',85)
         student_list[1].addCourseToCurriculum('ADED',202,TermSeasons.SUMMER, '2016', 70)
         student_list[1].addCourseToCurriculum('TESL',491,TermSeasons.SUMMER,'2015',72)
@@ -49,3 +52,4 @@ class StudentGenerator:
         student_list[9].addCourseToCurriculum('CHEM',217,TermSeasons.SUMMER,'2019',45)
         student_list[9].addCourseToCurriculum('CHEM',217,TermSeasons.FALL,'2019',70)
         student_list[9].addCourseToCurriculum('FPST',415,TermSeasons.FALL,'2019',65)
+        return student_list

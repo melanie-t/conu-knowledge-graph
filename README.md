@@ -7,7 +7,7 @@ Setting Up DBPedia Spotlight Server</br>
 2. Navigate to the project directory and run ```server_1_extract_en.sh``` to extract the model</br>
 
 3. Run ```server_2_init.sh``` to start the server.</br>
-4. When the server has been initialized, run ```server_3_test.sh``` to test that the server is running. It should return annotations.</br>
+4. (Optional) When the server has been initialized, run ```server_3_test.sh``` to test that the server is running. It should return annotations.</br>
 
 Setting up the Project
 1. Clone the repository
