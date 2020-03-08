@@ -1,5 +1,5 @@
 """
-Write  SPARQL  queries  that  retrieve  the  following  information  from  yourknowledge base:
+Write  SPARQL  queries  that  retrieve  the  following  information  from  your knowledge base:
 
  Total number of triples in the KB
  Total number of students, courses, and topics
@@ -10,22 +10,34 @@ Write  SPARQL  queries  that  retrieve  the  following  information  from  yourk
 
 """
 from rdflib import Graph
+import os
+import errno
+
+# Source: https://stackoverflow.com/questions/273192/how-can-i-safely-create-a-nested-directory/14364249#14364249
+# And https://github.com/melanie-t/COMP472_Project1_W20/blob/master/src/helper_functions.py
+def make_sure_path_exists(path):
+    try:
+        os.makedirs(path)
+    except OSError as exception:
+        if exception.errno != errno.EEXIST:
+            raise
+# End source
 
 g = Graph()
 g.parse("../rdfPopulator/output.ttl", format="turtle")
 
 print(len(g))
-q1 = open("q1.txt", "r")
-q1_response = open("q1_response.txt", "w")
+make_sure_path_exists("./sparql_queries")
+make_sure_path_exists("./output")
 
-query = q1.read() #Not working in query
-print(query)
+file_query = "q1.txt"
+file_output = "q1_response.txt"
+
+q1 = open("./sparql_queries/"+file_query, "r")
+q1_response = open("./output/"+file_output, "w")
 
 # Counts the nb of triples in the KB
-res1 = g.query("""
-    SELECT (COUNT(*) as ?Triples)
-    WHERE{?s ?p ?o .}
-""")
+res1 = g.query(q1.read())
 
 res2 = g.query("""
     SELECT 
@@ -48,9 +60,6 @@ res3 = g.query("""
         ?student ns3:completed_with ?grade .
     }
 """)
-
-
-
 
 for row in res1:
     q1_response.write(row[0])
