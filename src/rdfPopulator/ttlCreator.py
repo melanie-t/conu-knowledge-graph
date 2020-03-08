@@ -20,9 +20,10 @@ g = Graph()
 # from https://stackoverflow.com/questions/55182311/parsing-turtle-with-python-rdflib-cant-specify-iri-prefix
 g.namespace_manager.bind('sch', schema_namespace_uri)
 g.namespace_manager.bind('exprop', property_uri)
-g.namespace_manager.bind('dbpedia', dbpedia_property_uri)
-g.namespace_manager.bind('ont', dbpedia_ontology_uri)
+g.namespace_manager.bind('dbp', dbpedia_property_uri)
+g.namespace_manager.bind('dbo', dbpedia_ontology_uri)
 g.namespace_manager.bind('course', courses_namespace_uri)
+g.namespace_manager.bind('student', student_namespace_uri)
 
 
 # @prefix ns1: <http://schema.org/> .

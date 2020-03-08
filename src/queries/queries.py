@@ -59,34 +59,31 @@ q1_response = open("./output/"+file_output, "w")
 # Counts the nb of triples in the KB
 res1 = g.query(prefix + q1.read())
 
-res2 = g.query("""
+res2 = g.query(prefix+"""
     SELECT 
         (COUNT(?student) as ?studentsCount) 
         (COUNT(?course) as ?courseCount) 
-        (COUNT(?topic) as ?topicCount)
     WHERE{
-        ?student a <http://www.example.org/student/Student> .
-        ?course a <http://www.example.org/course/Course> .
-        ?topic a <http://www.example.org/course/CourseAcronym> .
+        ?student a student:Student .
+        ?course a course:Course .
     }
     """)
 
 
-course = "EDUC/399"
-res3 = g.query("""
-    SELECT ?grade ?courses ?student
-    WHERE{
-        ?student ns3:enrolled_to ?course .
-        ?student ns3:completed_with ?grade .
-    }
-""")
+# course = "EDUC/399"
+# res3 = g.query("""
+#     SELECT ?grade ?courses ?student
+#     WHERE{
+#         ?student ns3:enrolled_to ?course .
+#         ?student ns3:completed_with ?grade .
+#     }
+# """)
 
 for row in res1:
     q1_response.write(row[0])
 
 for row in res2:
-    for i in range(3):
-        print(row[i])
+    print(row)
 """
 
       res2 = g.query(
