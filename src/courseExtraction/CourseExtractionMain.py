@@ -64,6 +64,7 @@ if __name__ == '__main__':
     files_from_dir = [f for f in listdir(path_to_course_pages) if isfile(join(path_to_course_pages, f))]
 
     file = open(path_to_courses, 'w', encoding="latin-1")
+    """
     course_list = GradCourseExtraction.extractGradCourses()
     #course_list = []
     for i in range(len(files_from_dir)):
@@ -79,4 +80,5 @@ if __name__ == '__main__':
                 print("Analysis of file "+files_from_dir[i]+" complete.")
                 break
     print(len(course_list), " courses have been processed")
+    """
     file.close()
