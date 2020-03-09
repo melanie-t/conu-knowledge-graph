@@ -19,13 +19,13 @@ def init_topics(graph):
         graph.add((URIRef(uri), RDFS.label, Literal(label.title())))
 
     # Adding Topics for Courses
-    all_courses = open("../spotlightAnnotations/spotlight-courses.txt").readlines()
-    for course in all_courses:
-        course = course.replace("\n", "")
-        course_arg = course.split("\" ")
-        course_uri = course_arg[0].replace("\"", "")
-        topic_uri = course_arg[2]
-        graph.add((URIRef(course_uri), URIRef(sioc_namespace+'topic'), URIRef(topic_uri)))
+    # all_courses = open("../spotlightAnnotations/spotlight-courses.txt").readlines()
+    # for course in all_courses:
+    #     course = course.replace("\n", "")
+    #     course_arg = course.split("\" ")
+    #     course_uri = course_arg[0].replace("\"", "")
+    #     topic_uri = course_arg[2]
+    #     graph.add((URIRef(course_uri), URIRef(sioc_namespace+'topic'), URIRef(topic_uri)))
 
 
 # graph = Graph()
