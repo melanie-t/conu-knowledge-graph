@@ -1,0 +1,89 @@
+"accounting" http://dbpedia.org/resource/Accounting
+"accounting" http://dbpedia.org/resource/Accounting
+"accounting" http://dbpedia.org/resource/Accounting
+"financial statements" http://dbpedia.org/resource/Financial_statement
+"financial statements" http://dbpedia.org/resource/Financial_statement
+"accounting" http://dbpedia.org/resource/Accounting
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"accounting" http://dbpedia.org/resource/Accounting
+"accounting" http://dbpedia.org/resource/Accounting
+"financial reporting" http://dbpedia.org/resource/Financial_statement
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"accounting" http://dbpedia.org/resource/Accounting
+"equity" http://dbpedia.org/resource/Stock
+"pension" http://dbpedia.org/resource/Pension
+"accounting" http://dbpedia.org/resource/Accounting
+"accounting" http://dbpedia.org/resource/Accounting
+"Management Accounting" http://dbpedia.org/resource/Management_accounting
+"accounting" http://dbpedia.org/resource/Accounting
+"process costing" http://dbpedia.org/resource/Process_costing
+"variance" http://dbpedia.org/resource/Variance
+"transfer pricing" http://dbpedia.org/resource/Transfer_pricing
+"Canada" http://dbpedia.org/resource/Canada
+"federal income tax" http://dbpedia.org/resource/Income_tax_in_the_United_States
+"property income" http://dbpedia.org/resource/Property_income
+"capital gains" http://dbpedia.org/resource/Capital_gain
+"Information Technology" http://dbpedia.org/resource/Information_technology
+"accounting" http://dbpedia.org/resource/Accounting
+"AIS" http://dbpedia.org/resource/Automatic_identification_system
+"AIS" http://dbpedia.org/resource/Automatic_identification_system
+"accounting" http://dbpedia.org/resource/Accounting
+"e-business" http://dbpedia.org/resource/Electronic_business
+"computer" http://dbpedia.org/resource/Computer
+"systems analysis" http://dbpedia.org/resource/Systems_analysis
+"financial statements" http://dbpedia.org/resource/Financial_statement
+"financial statements" http://dbpedia.org/resource/Financial_statement
+"corporate governance" http://dbpedia.org/resource/Corporate_governance
+"risk management framework" http://dbpedia.org/resource/Risk_management_framework
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"tax planning" http://dbpedia.org/resource/Tax_avoidance
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"financial reporting" http://dbpedia.org/resource/Financial_statement
+"accounting" http://dbpedia.org/resource/Accounting
+"accounting" http://dbpedia.org/resource/Accounting
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"accounting" http://dbpedia.org/resource/Accounting
+"financial statements" http://dbpedia.org/resource/Financial_statement
+"currency" http://dbpedia.org/resource/Currency
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"accounting" http://dbpedia.org/resource/Accounting
+"financial reporting" http://dbpedia.org/resource/Financial_statement
+"Management Accounting" http://dbpedia.org/resource/Management_accounting
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"accounting" http://dbpedia.org/resource/Accounting
+"accounting" http://dbpedia.org/resource/Accounting
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"accounting" http://dbpedia.org/resource/Accounting
+"enterprise resource planning (ERP)" http://dbpedia.org/resource/Enterprise_resource_planning
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"estate planning" http://dbpedia.org/resource/Estate_planning
+"larceny" http://dbpedia.org/resource/Larceny
+"cheque" http://dbpedia.org/resource/Cheque
+"financial statements" http://dbpedia.org/resource/Financial_statement
+"Sarbanes-Oxley Act" http://dbpedia.org/resource/Sarbanes–Oxley_Act
+"Criminal Code" http://dbpedia.org/resource/Criminal_code
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"assurance services" http://dbpedia.org/resource/Assurance_services
+"audit" http://dbpedia.org/resource/Audit
+"accounting" http://dbpedia.org/resource/Accounting
+"accounting" http://dbpedia.org/resource/Accounting
+"Accountancy" http://dbpedia.org/resource/Accounting
+"ACCO" http://dbpedia.org/resource/Acre,_Israel
+"Accountancy" http://dbpedia.org/resource/Accounting
+"accounting history" http://dbpedia.org/resource/Accounting_History
+"Accountancy" http://dbpedia.org/resource/Accounting
+"poster session" http://dbpedia.org/resource/Poster_session
+"expression" http://dbpedia.org/resource/Gene_expression
+"basics" http://dbpedia.org/resource/British_Association_for_Immediate_Care
+"improvisation" http://dbpedia.org/resource/Improvisation
+"ACTT" http://dbpedia.org/resource/Association_of_Cinematograph,_Television_and_Allied_Technicians
+"ACTT" http://dbpedia.org/resource/Association_of_Cinematograph,_Television_and_Allied_Technicians
+"early modern" http://dbpedia.org/resource/Early_modern_period
+"expression" http://dbpedia.org/resource/Gene_expression
+"sensory awareness" http://dbpedia.org/resource/Charlotte_Selver
+"ACTT" http://dbpedia.org/resource/Association_of_Cinematograph,_Television_and_Allied_Technicians
+"Laban" http://dbpedia.org/resource/Rudolf_von_Laban
+"Biomechanics" http://dbpedia.org/resource/Biomechanics
+"somatic" http://dbpedia.org/resource/Somatic_psychology

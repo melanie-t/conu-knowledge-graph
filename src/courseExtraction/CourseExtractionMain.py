@@ -4,6 +4,7 @@ import errno
 
 from src.courseExtraction import CourseDataCollector
 from src.courseExtraction.CourseDataParser import CourseDataParser
+from src.courseExtraction.GradCourseExtraction import GradCourseExtraction
 
 
 # Source: https://stackoverflow.com/questions/273192/how-can-i-safely-create-a-nested-directory/14364249#14364249
@@ -13,6 +14,15 @@ def make_sure_path_exists(path):
     except OSError as exception:
         if exception.errno != errno.EEXIST:
             raise
+
+def isCourseNotInList(courseList, courseObj):
+    isInCourse = True
+
+    for i in range(len(courseList)):
+        print(courseList[i].subject, ' ', courseList[i].number, ' vs ', courseObj.subject, ' ', courseObj.number)
+        if(courseList[i].subject == courseObj.subject and courseList[i].number == courseObj.number):
+            isInCourse = False
+    return isInCourse
 # End source
 
 """
@@ -64,17 +74,31 @@ if __name__ == '__main__':
 
     file = open(path_to_courses, 'w', encoding="latin-1")
 
+    course_list = GradCourseExtraction.extractGradCourses()
+    #course_list = []
     for i in range(len(files_from_dir)):
         acronym_file = files_from_dir[i].split('.')[0]
         # find right acronym to search for based on name of file (if list of acronyms, match with first one)
         for j in range(len(acronyms_to_search)):
             if acronym_file == acronyms_to_search[j][0]:
-                course_list = CourseDataParser.extractCoursesFromFile(path_to_course_pages+files_from_dir[i], acronyms_to_search[j])
+                course_list += CourseDataParser.extractCoursesFromFile(path_to_course_pages+files_from_dir[i], acronyms_to_search[j])
                 # write courses to file
-                for k in range(len(course_list)):
-                    file.write(str(course_list[k].subject)+' '+str(course_list[k].number)+' \"'+str(course_list[k].title)+'\" \"'+str(course_list[k].description)+'\"\n')
-                    print(str(course_list[k].number)+' '+str(course_list[k].subject)+' '+str(course_list[k].title))
+
                 print("Analysis of file "+files_from_dir[i]+" complete.")
                 break
-
+    for k in range(len(course_list)):
+        file.write(str(course_list[k].subject) + ' ' + str(course_list[k].number) + ' \"' + str(
+            course_list[k].title) + '\" \"' + str(course_list[k].description) + '\"\n')
+        print(str(course_list[k].number) + ' ' + str(course_list[k].subject) + ' ' + str(course_list[k].title))
+    print(len(course_list), " courses have been processed")
+    """
+    filtered_courses = []
+    for i in range(len(course_list)):
+        if(isCourseNotInList(filtered_courses, course_list[i])):
+            filtered_courses.append(course_list[i])
+        else:
+            print(course_list[i].subject, " ", course_list[i].number, " is a duplicate")
+    course_list = filtered_courses
+    print(len(course_list), " courses remained")
+    """
     file.close()

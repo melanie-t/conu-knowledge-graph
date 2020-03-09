@@ -1,4 +1,5 @@
 import requests
+import re
 
 """
 This script gets all the HTML files from the Internet for us to get the content that will eventually allow us to extract
@@ -166,5 +167,6 @@ def downloadAllHTML():
     for i in range(len(all_urls)):
         response = requests.get(all_urls[i])
         file = open('CoursePagesHtml/'+file_names[i]+'.html','w', encoding="latin-1")
-        file.write(response.text)
+        output = re.sub("&nbsp;", "", (response.text).encode("ascii", errors="ignore").decode())
+        file.write(output)
         file.close()

@@ -1,32 +1,42 @@
+from json import JSONDecodeError
+
 import requests
 import urllib.parse
 import json
 from src.courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt
 
+CONFIDENCE = 0.35
+
 
 class SpotlightAssociations:
-
     # there is also the @confidence that could be taken
     @staticmethod
     def get_keywords_from_text(text):
         url_encoded_text = urllib.parse.quote_plus(text)
-        url = "https://api.dbpedia-spotlight.org/en/annotate?text="+url_encoded_text
+        url = "http://localhost:2222/rest/annotate?confidence="+str(CONFIDENCE) + "&text="+url_encoded_text
         response_details = requests.get(url, headers={"Accept":"application/json"})
         parsed_response = json.loads(response_details.content)
+        links_added = []
 
-        term_link_array = [[0 for j in range(2)] for i in range(len(parsed_response['Resources']))]
-        for i in range(len(parsed_response['Resources'])):
-            term_link_array[i][0] = parsed_response['Resources'][i]['@surfaceForm'] # term
-            term_link_array[i][1] = parsed_response['Resources'][i]['@URI'] # link
+        term_link_array = []
+        if 'Resources' in parsed_response:
+            for i in range(len(parsed_response['Resources'])):
+                if parsed_response['Resources'][i]['@URI'] not in links_added:
+                    term_link_array.append([parsed_response['Resources'][i]['@surfaceForm'], parsed_response['Resources'][i]['@URI']]) # term and link
+                    links_added.append(parsed_response['Resources'][i]['@URI'])
 
         return term_link_array
 
     @staticmethod
     def __get_keywords_from_text_to_file(text, fileURI):
         url_encoded_text = urllib.parse.quote_plus(text)
-        url = "https://api.dbpedia-spotlight.org/en/annotate?text=" + url_encoded_text
+        url = "http://localhost:2222/rest/annotate?confidence="+str(CONFIDENCE) + "&text="+url_encoded_text
         response_details = requests.get(url, headers={"Accept": "application/json"})
-        parsed_response = json.loads(response_details.content)
+        parsed_response = ''
+        try:
+            parsed_response = json.loads(response_details.content.decode("utf-8"))
+        except JSONDecodeError as e:
+            print(e)
 
         if 'Resources' in parsed_response:
             outputfile = open(fileURI,'a')
