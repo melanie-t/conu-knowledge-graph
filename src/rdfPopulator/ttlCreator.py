@@ -112,15 +112,23 @@ if __name__ == '__main__':
     for course in course_uri_set:
         print(course)
         termLink = []
-        termLink = SpotlightAssociations.SpotlightAssociations.get_keywords_from_text(
-            course[1] + " " + course[2])
+        try:
+            termLink = SpotlightAssociations.SpotlightAssociations.get_keywords_from_text(
+                course[1] + " " + course[2])
 
-        if len(termLink) != 0:
-            for entity in termLink:
-                label = entity[0]
-                uri = entity[1]
-                g.add((URIRef(course[0]), URIRef(sioc_namespace + "topic"), URIRef(uri)))
-                g.add((URIRef(uri), RDF.type, URIRef(topic_namespace_uri)))
-                g.add((URIRef(uri), RDFS.label, Literal(label)))
+            if len(termLink) != 0:
+                for entity in termLink:
+                    label = entity[0]
+                    uri = entity[1]
+                    g.add((URIRef(course[0]), URIRef(sioc_namespace + "topic"), URIRef(uri)))
+                    g.add((URIRef(uri), RDF.type, URIRef(topic_namespace_uri)))
+                    g.add((URIRef(uri), RDFS.label, Literal(label)))
+
+                    outputfile = open("spotlight.txt", 'a')
+                    outputfile.write(URIRef(course[0], label, uri))
+                    outputfile.close()
+
+        except Exception as e:
+            print(e)
 
         g.serialize(destination='output.ttl', format='turtle')
