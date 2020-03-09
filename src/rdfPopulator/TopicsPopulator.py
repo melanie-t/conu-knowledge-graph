@@ -10,25 +10,24 @@ def init_topics(graph):
     # Add Topic triples
     all_topics = open("../spotlightAnnotations/spotlight-set.txt").readlines()
     for topic in all_topics:
-        topic.replace("\\n", "")
+        topic = topic.replace("\n", "")
         topic_arg = topic.split("\" ")
         label = topic_arg[0].replace("\"", "")
 
         uri = topic_arg[1]
         graph.add((URIRef(uri), RDF.type, URIRef(topic_namespace_uri)))
-        graph.add((URIRef(uri), RDFS.label, Literal(label)))
+        graph.add((URIRef(uri), RDFS.label, Literal(label.title())))
 
     # Adding Topics for Courses
     all_courses = open("../spotlightAnnotations/spotlight-courses.txt").readlines()
     for course in all_courses:
-        course.replace("\\n", "")
-        # course_arg = course.split(" ")
-        # course_uri = course_arg[0]
-        # topic_uri = course_arg[2]
-        # graph.add((URIRef(course_uri), URIRef(sioc_namespace+'topic'), topic_uri))
+        course = course.replace("\n", "")
+        course_arg = course.split("\" ")
+        course_uri = course_arg[0].replace("\"", "")
+        topic_uri = course_arg[2]
+        graph.add((URIRef(course_uri), URIRef(sioc_namespace+'topic'), URIRef(topic_uri)))
 
 
 # graph = Graph()
 # init_topics(graph)
-# for row in graph:
-#     print(row)
+# graph.serialize(destination='topics.ttl', format='turtle')
