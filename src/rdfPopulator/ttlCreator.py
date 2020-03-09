@@ -2,11 +2,14 @@ from rdflib import URIRef, Graph, Literal
 from rdflib.namespace import RDF, RDFS, Namespace, NamespaceManager
 from src.courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt
 from src.studentCreation.StudentGenerator import StudentGenerator
+from src.spotlightAnnotations import SpotlightAssociations
+
 if __name__ == '__main__':
     courses_namespace_uri = "http://www.example.org/course/"
     property_uri = "http://www.example.org/property/"
     student_namespace_uri = "http://www.example.org/student/"
     semester_namespace_uri = "http://www.example.org/semester/"
+    topic_namespace_uri = "http://www.example.org/topic/"
 
     schema_namespace_uri = "http://schema.org/"
 
@@ -14,7 +17,15 @@ if __name__ == '__main__':
     dbpedia_property_uri = "http://dbpedia.org/property/"
     dbpedia_ontology_uri = "http://dbpedia.org/ontology/"
 
+    sioc_namespace = "http://rdfs.org/sioc/ns#"
+
     g = Graph()
+
+    course_uri_set = set()
+
+    # Add Topic Class definition
+    g.add((URIRef(topic_namespace_uri), RDF.type, RDFS.Class))
+    g.add((URIRef(topic_namespace_uri), RDFS.subClassOf, URIRef(courses_namespace_uri)))
 
     # first add the university
     g.add((URIRef(dbpedia_page_uri+"Concordia_University"), URIRef(dbpedia_ontology_uri+"type"), URIRef(dbpedia_page_uri+"Public_university")))
@@ -32,16 +43,8 @@ if __name__ == '__main__':
     g.namespace_manager.bind('dbo', dbpedia_ontology_uri)
     g.namespace_manager.bind('course', courses_namespace_uri)
     g.namespace_manager.bind('student', student_namespace_uri)
-
-
-    # @prefix ns1: <http://schema.org/> .
-    # @prefix ns2: <http://www.example.org/property/> .
-    # @prefix ns3: <http://dbpedia.org/property/> .
-    # @prefix ns4: <http://dbpedia.org/ontology/> .
-    # @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-    # @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-    # @prefix xml: <http://www.w3.org/XML/1998/namespace> .
-    # @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+    g.namespace_manager.bind('topic', topic_namespace_uri)
+    g.namespace_manager.bind('sioc', sioc_namespace)
 
     # first add the university
     g.add((URIRef(dbpedia_page_uri+"Concordia_University"), URIRef(dbpedia_ontology_uri+"type"), URIRef(dbpedia_page_uri+"Public_university")))
@@ -51,7 +54,7 @@ if __name__ == '__main__':
     # then create a deeper level for identification (number of class)
     # when in that deeper level, each node will have a title and a description
     observed_acronym = ''
-
+    i = 0
     for i in range(len(courses_list)):
         if len(observed_acronym) == 0:
             observed_acronym = courses_list[i].subject
@@ -69,7 +72,8 @@ if __name__ == '__main__':
             g.add((uri_to_number, RDF.type, URIRef(courses_namespace_uri+'Course')))
             g.add((uri_to_number, RDFS.label, Literal(courses_list[i].description))) # set description as label
             g.add((uri_to_number, URIRef(schema_namespace_uri+'name'), Literal(courses_list[i].title))) # set title as name
-            i+=1
+            course_uri_set.add((str(uri_to_number), str(courses_list[i].title), str(courses_list[i].description)))
+            i += 1
 
     # now add the students
     StudentGenerator.generate_students_classes()
@@ -103,5 +107,20 @@ if __name__ == '__main__':
             # 'season' is a TermSeason
             g.add((URIRef(semester_namespace_uri+students[i].curriculum[j].getTermSemester()), RDF.type,
                    URIRef(semester_namespace_uri+"TermSeason")))
+
+    # Find spotlight associations for specific course URI
+    for course in course_uri_set:
+        print(course)
+        termLink = []
+        termLink = SpotlightAssociations.SpotlightAssociations.get_keywords_from_text(
+            course[1] + " " + course[2])
+
+        if len(termLink) != 0:
+            for entity in termLink:
+                label = entity[0]
+                uri = entity[1]
+                g.add((URIRef(course[0]), URIRef(sioc_namespace + "topic"), URIRef(uri)))
+                g.add((URIRef(uri), RDF.type, URIRef(topic_namespace_uri)))
+                g.add((URIRef(uri), RDFS.label, Literal(label)))
 
         g.serialize(destination='output.ttl', format='turtle')
