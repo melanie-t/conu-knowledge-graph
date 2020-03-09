@@ -3,8 +3,8 @@ from json import JSONDecodeError
 import requests
 import urllib.parse
 import json
-from spotlight.CourseExtractorFromTxt import CourseExtractorFromTxt
-from spotlight.QueryServer import QueryServer
+from courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt # to change... import not good
+from spotlightAnnotations.QueryServer import QueryServer
 
 CONFIDENCE = 0.35
 
