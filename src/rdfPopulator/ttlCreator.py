@@ -133,4 +133,4 @@ if __name__ == '__main__':
         except Exception as e:
             print(e)
 
-        g.serialize(destination='output.ttl', format='turtle')
+    g.serialize(destination='output.ttl', format='turtle')
