@@ -1,14 +1,15 @@
 from rdflib import URIRef, Literal
 from rdflib.namespace import RDF, RDFS
-
 from src.courseExtraction import CourseLinks
 from src.courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt
+
 
 # create a level for categories (acronyms, so COMP, SOEN, ...)
 # then create a deeper level for identification (number of class)
 # when in that deeper level, each node will have a title and a description
 def init_courses(graph, course_uri_set):
     courses_namespace_uri = "http://www.example.org/course/"
+    course_code_namespace_uri = "http://www.example.org/course/code/"
     property_uri = "http://www.example.org/property/"
     schema_namespace_uri = "http://schema.org/"
     dbpedia_page_uri = "http://dbpedia.org/page/"
@@ -37,11 +38,13 @@ def init_courses(graph, course_uri_set):
             course_ref_link = CourseLinks.CourseLinks.getUrlForCourseAcronym(observed_acronym)
             graph.add((uri_to_number, RDFS.subClassOf, uri_to_acronym))
             graph.add((uri_to_number, RDF.type, URIRef(courses_namespace_uri + 'Course')))
-            graph.add((uri_to_number, RDFS.label, Literal(observed_acronym + " " + courses_list[i].number + " : " + courses_list[i].title)))
+            graph.add((uri_to_number, URIRef(courses_namespace_uri + "code"), Literal(courses_list[i].number))) # Course number
+            graph.add((uri_to_number, URIRef(courses_namespace_uri + "subject"), Literal(observed_acronym)))  # Course subject
+            graph.add((uri_to_number, RDFS.label, Literal(observed_acronym + " " + courses_list[i].number + " : " + courses_list[i].title))) # label to display course code and title
             graph.add((uri_to_number, URIRef(sioc_namespace+"about"), Literal(courses_list[i].description)))  # set description as sioc:about
             graph.add((uri_to_number, RDFS.seeAlso, URIRef(course_ref_link))) # rdfs:seeAlso link to Concordia's reference page
             graph.add(
-                (uri_to_number, URIRef(schema_namespace_uri + 'name'), Literal(courses_list[i].title)))  # set title as name
+                (uri_to_number, URIRef(courses_namespace_uri + 'name'), Literal(courses_list[i].title)))  # set title as name
             course_uri_set.add((str(uri_to_number), str(courses_list[i].title), str(courses_list[i].description)))
             i += 1
 
