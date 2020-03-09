@@ -1,6 +1,31 @@
 from rdflib import Graph
 from src.queries import Queries
-from src.queries.old_queries import create_prefix
+
+
+def create_prefix(output_file_path):
+    prefix_list = ''
+    # Import prefixes from ttl
+    try:
+        # Source: https://stackabuse.com/read-a-file-line-by-line-in-python/
+        filepath = '../rdfPopulator/output.ttl'
+        with open(filepath) as f:
+            line = f.readline()
+            prefix_list = prefix_list + line
+            cnt = 1
+            while line:
+                line = f.readline()
+                if line in ['\n', '\r\n']:
+                    break
+                prefix_list = prefix_list + line
+                cnt += 1
+    finally:
+        f.close()
+
+    prefix_list = prefix_list.replace("@prefix", "PREFIX")
+    prefix_list = prefix_list.replace(" .", "")
+
+    return prefix_list
+
 
 if __name__ == '__main__':
     output_file = "../rdfPopulator/output.ttl"
