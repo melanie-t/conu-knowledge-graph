@@ -1,3 +1,7 @@
+import os
+import errno
+
+
 class Q1:
     # 1. Total number of triples in the KB
     @staticmethod
@@ -87,8 +91,14 @@ class Q6:
 
 
 def open_query_files(query_number):
-    query = open("./sparql_queries/" + f"py_{query_number}.txt", "r")
-    output = open("./output/" + f"{query_number}_response.txt", "w")
+    query_file_path = "./sparql_queries/" + f"py_{query_number}.txt"
+    output_file_path = "./output/" + f"{query_number}_response.txt"
+
+    make_sure_path_exists(query_file_path)
+    make_sure_path_exists(output_file_path)
+
+    query = open(query_file_path, "r")
+    output = open(output_file_path, "w")
 
     return query, output
 
@@ -101,3 +111,14 @@ def save_results(results, output_file):
         result = result + '\n'
         print(result)
         output_file.write(result)
+
+
+# Source: https://stackoverflow.com/questions/273192/how-can-i-safely-create-a-nested-directory/14364249#14364249
+# And https://github.com/melanie-t/COMP472_Project1_W20/blob/master/src/helper_functions.py
+def make_sure_path_exists(path):
+    try:
+        os.makedirs(path)
+    except OSError as exception:
+        if exception.errno != errno.EEXIST:
+            raise
+# End source
