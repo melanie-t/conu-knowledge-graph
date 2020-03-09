@@ -124,8 +124,10 @@ if __name__ == '__main__':
                     g.add((URIRef(uri), RDF.type, URIRef(topic_namespace_uri)))
                     g.add((URIRef(uri), RDFS.label, Literal(label)))
 
-                    outputfile = open("spotlight.txt", 'a')
-                    outputfile.write(URIRef(course[0], label, uri))
+                    outputfile = open("spotlight.txt", 'x')
+                    association = course[0] + " " + label + " " + uri
+                    outputfile.write(association)
+                    print("Saved to file" + association)
                     outputfile.close()
 
         except Exception as e:
