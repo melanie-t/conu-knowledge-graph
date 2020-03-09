@@ -26,3 +26,6 @@ The spotlightAnnotations module gives a basic method to get back every term in a
 The studentCreation module creates the Student objects along with all the information related to the courses they have taken.
 
 The rdfPopulator module create the RDF schema using the Turtle format. The script ttlCreator.py contains all the necessary information. The RDF schema can be found in rdfPopulator/output.ttl
+
+Report:
+https://docs.google.com/document/d/16HLikMoJ4mDtSEsjLkPx3ZlpZJnvcQ45PChELHhpzks/edit?fbclid=IwAR2q_XN3VRcr8pU2DQYBWFgrR7Ri2jhfV6dRQI4hJGB1srUDRfpWu5gjiQE

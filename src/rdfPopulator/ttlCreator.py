@@ -1,5 +1,5 @@
 from rdflib import URIRef, Graph, Literal
-from rdflib.namespace import RDF, RDFS
+from rdflib.namespace import RDF, RDFS, Namespace, NamespaceManager
 from src.courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt
 from src.studentCreation.StudentGenerator import StudentGenerator
 if __name__ == '__main__':
@@ -24,6 +24,28 @@ if __name__ == '__main__':
     # get the courses
     CourseExtractorFromTxt.path_to_courses = '../courseExtraction/courses.txt'
     courses_list = CourseExtractorFromTxt.get_course_list()
+    # Prefix creation
+    # from https://stackoverflow.com/questions/55182311/parsing-turtle-with-python-rdflib-cant-specify-iri-prefix
+    g.namespace_manager.bind('sch', schema_namespace_uri)
+    g.namespace_manager.bind('exprop', property_uri)
+    g.namespace_manager.bind('dbp', dbpedia_property_uri)
+    g.namespace_manager.bind('dbo', dbpedia_ontology_uri)
+    g.namespace_manager.bind('course', courses_namespace_uri)
+    g.namespace_manager.bind('student', student_namespace_uri)
+
+
+    # @prefix ns1: <http://schema.org/> .
+    # @prefix ns2: <http://www.example.org/property/> .
+    # @prefix ns3: <http://dbpedia.org/property/> .
+    # @prefix ns4: <http://dbpedia.org/ontology/> .
+    # @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+    # @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+    # @prefix xml: <http://www.w3.org/XML/1998/namespace> .
+    # @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+    # first add the university
+    g.add((URIRef(dbpedia_page_uri+"Concordia_University"), URIRef(dbpedia_ontology_uri+"type"), URIRef(dbpedia_page_uri+"Public_university")))
+    g.add((URIRef(dbpedia_page_uri+"Concordia_University"), URIRef(dbpedia_property_uri+"uniname"), Literal("Concordia University"))) # name
 
     # create a level for categories (acronyms, so COMP, SOEN, ...)
     # then create a deeper level for identification (number of class)
