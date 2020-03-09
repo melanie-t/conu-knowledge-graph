@@ -1,0 +1,5 @@
+SELECT ?label ?topic
+WHERE {
+<http://www.example.org/course/ACCO/220> sioc:topic ?topic .
+?topic rdfs:label ?label .
+}

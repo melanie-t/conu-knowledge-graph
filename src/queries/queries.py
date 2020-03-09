@@ -13,6 +13,7 @@ from rdflib import Graph
 import os
 import errno
 
+
 # Source: https://stackoverflow.com/questions/273192/how-can-i-safely-create-a-nested-directory/14364249#14364249
 # And https://github.com/melanie-t/COMP472_Project1_W20/blob/master/src/helper_functions.py
 def make_sure_path_exists(path):
@@ -23,82 +24,98 @@ def make_sure_path_exists(path):
             raise
 # End source
 
-prefix = ''
-# Import prefixes from ttl
-try:
-    # Source: https://stackabuse.com/read-a-file-line-by-line-in-python/
-    filepath = '../rdfPopulator/output.ttl'
-    with open(filepath) as f:
-        line = f.readline()
-        cnt = 1
-        while line:
+
+def create_prefix():
+    prefix_list = ''
+    # Import prefixes from ttl
+    try:
+        # Source: https://stackabuse.com/read-a-file-line-by-line-in-python/
+        filepath = '../rdfPopulator/output.ttl'
+        with open(filepath) as f:
             line = f.readline()
-            if line in ['\n', '\r\n']:
-                break
-            prefix = prefix + line
-            cnt += 1
-finally:
-    f.close()
+            prefix_list = prefix_list + line
+            cnt = 1
+            while line:
+                line = f.readline()
+                if line in ['\n', '\r\n']:
+                    break
+                prefix_list = prefix_list + line
+                cnt += 1
+    finally:
+        f.close()
 
-prefix = prefix.replace("@prefix", "PREFIX")
-prefix = prefix.replace(".", "")
+    prefix_list = prefix_list.replace("@prefix", "PREFIX")
+    prefix_list = prefix_list.replace(" .", "")
 
-g = Graph()
-g.parse("../rdfPopulator/output.ttl", format="turtle")
-
-print(len(g))
-make_sure_path_exists("./sparql_queries")
-make_sure_path_exists("./output")
-
-file_query = "q1.txt"
-file_output = "q1_response.txt"
-
-q1 = open("./sparql_queries/"+file_query, "r")
-q1_response = open("./output/"+file_output, "w")
-
-# Counts the nb of triples in the KB
-res1 = g.query(prefix + q1.read())
-
-res2 = g.query(prefix+"""
-    SELECT 
-        (COUNT(?student) as ?studentsCount) 
-        (COUNT(?course) as ?courseCount) 
-    WHERE{
-        ?student a student:Student .
-        ?course a course:Course .
-    }
-    """)
+    return prefix_list
 
 
-# course = "EDUC/399"
-# res3 = g.query("""
-#     SELECT ?grade ?courses ?student
-#     WHERE{
-#         ?student ns3:enrolled_to ?course .
-#         ?student ns3:completed_with ?grade .
-#     }
-# """)
+if __name__ == '__main__':
+    prefix = create_prefix()
+    g = Graph()
+    g.parse("../rdfPopulator/output.ttl", format="turtle")
 
-for row in res1:
-    q1_response.write(row[0])
+    # Query 1. Total number of triples in the KB
+    file_query = "q1.txt"
+    file_output = "q1_response.txt"
+    q1 = open("./sparql_queries/" + file_query, "r")
+    q1_response = open("./output/" + file_output, "w")
 
-for row in res2:
-    print(row)
-"""
+    res1 = g.query(prefix + q1.read())
 
-      res2 = g.query(
+    for row in res1:
+        q1_response.write(row[0])
+
+    # Query 2. Total number of students, courses, and topics
+    # TODO: DOES NOT WORK
+    """
     SELECT (COUNT(*) as ?studentsCount) (COUNT(*) as ?courseCount) (COUNT(*) as ?topicCount)
-    WHERE{
+    WHERE {
         ?student a <http://www.example.org/student/Student> .
         ?course a <http://www.example.org/course/Course> .
         ?topic a <http://www.example.org/course/CourseAcronym> .
     }
-    )
+    """
 
-        
-        
-SELECT  ?s ?c ?t
-WHERE{
-    ?s = 
-}
-"""
+    # Query 3. For a course c, list all covered topics using their (English) labels and their link to DBpedia
+    # TODO: Waiting for Course Code to display
+    """
+    SELECT ?completed_course ?grade
+    WHERE {
+        ?student a student:Student .
+        ?student exprop:identified_by "422222" .
+        ?student exprop:enrolled_in ?completed_course .
+        ?completed_course exprop:completed_with ?grade .
+    }
+    """
+    q3 = open("./sparql_queries/" + "q3.txt", "r")
+    q3_response = open("./output/" + "q3_response.txt", "w")
+
+    res3 = g.query(prefix + q3.read())
+    for row in res3:
+        q3_response.write(row['completed_course'], row['grade'])
+
+    # Query 4. For a course c, list all covered topics using their (English) labels and their link to DBpedia
+    """
+    SELECT ?label ?topic
+    WHERE {
+        <http://www.example.org/course/ACCO/220> sioc:topic ?topic .
+        ?topic rdfs:label ?label .
+    }
+    """
+    q4 = open("./sparql_queries/" + "q4.txt", "r")
+    q4_response = open("./output/" + "q4_response.txt", "w")
+
+    res4 = g.query(prefix + q4.read())
+    for row in res4:
+        for entity in row:
+            q4_response.write(entity + "\t")
+        q4_response.write("\n")
+
+
+    # Query 5. For a given topic, list all students that are familiar with the topic (i.e., took, and did not fail, acourse that covered the topic)
+    # TODO
+
+    # Query 6.For a student, list all topics (no duplicates) that this student is familiar with (based on the completedcourses for this student that are better than an “F” grade)
+    # TODO
+
