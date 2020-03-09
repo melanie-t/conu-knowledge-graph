@@ -80,22 +80,27 @@ if __name__ == '__main__':
     # Query 3. For a course c, list all covered topics using their (English) labels and their link to DBpedia
     # TODO: Waiting for Course Code to display
     """
-    SELECT ?completed_course ?grade
+    SELECT ?label ?topic
     WHERE {
-        ?student a student:Student .
-        ?student exprop:identified_by "422222" .
-        ?student exprop:enrolled_in ?completed_course .
-        ?completed_course exprop:completed_with ?grade .
+        <http://www.example.org/course/ACCO/220> sioc:topic ?topic .
+        ?topic rdfs:label ?label .
     }
     """
-    q3 = open("./sparql_queries/" + "q3.txt", "r")
+    q3_file = open("./sparql_queries/" + "py_q3.txt", "r")
     q3_response = open("./output/" + "q3_response.txt", "w")
+    q3 = q3_file.read()
 
-    res3 = g.query(prefix + q3.read())
+    course_uri = "http://www.example.org/course/ACCO/340"
+    q3 = q3.replace("<>", f"<{course_uri}>")
+    q3 = prefix + q3
+
+    res3 = g.query(q3)
     for row in res3:
-        q3_response.write(row['completed_course'], row['grade'])
+        result = row['label'], row['topic']
+        print(result)
+        q3_response.write(result)
 
-    # Query 4. For a course c, list all covered topics using their (English) labels and their link to DBpedia
+    # Query 4.For a given student, list all courses this student completed, together with the grade
     """
     SELECT ?label ?topic
     WHERE {

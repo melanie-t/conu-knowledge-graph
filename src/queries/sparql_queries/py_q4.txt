@@ -1,0 +1,8 @@
+SELECT ?course_label ?grade ?completed_course
+WHERE {
+    ?student a student:Student .
+    ?student exprop:identified_by <sid> .
+    ?student exprop:enrolled_in ?completed_course .
+    ?completed_course exprop:completed_with ?grade .
+    OPTIONAL { ?completed_course rdfs:label ?course_label }
+}
