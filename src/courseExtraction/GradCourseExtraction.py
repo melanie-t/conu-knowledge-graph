@@ -70,6 +70,11 @@ def downloadGradHTML():
         output = re.sub("&nbsp;", "", (response.text).encode("ascii", errors="ignore").decode())
         file.write(output)
         file.close()
+def getUrlForCourseAcronym(courseAcronym):
+    for i in range(len(file_names)):
+        if file_names[i] == courseAcronym:
+            return all_grad_urls[i]
+    return ''
 
 class GradCourseExtraction:
     @staticmethod
