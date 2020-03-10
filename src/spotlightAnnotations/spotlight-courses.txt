@@ -1,0 +1,12 @@
+"http://www.example.org/course/CHEM/209" "Youth Work" http://dbpedia.org/resource/Youth_work
+"http://www.example.org/course/ACCO/220" "youth work" http://dbpedia.org/resource/Youth_work
+"http://www.example.org/course/ACCO/310" evidence-based practice" http://dbpedia.org/resource/Evidence-based_practice
+"http://www.example.org/course/ACCO/310" "qualitative" http://dbpedia.org/resource/Qualitative_research
+"http://www.example.org/course/ACCO/310" "quantitative data" http://dbpedia.org/resource/Level_of_measurement
+"http://www.example.org/course/ACCO/310" "ethical" http://dbpedia.org/resource/Ethics
+"http://www.example.org/course/ACCO/340" "accountability" http://dbpedia.org/resource/Accountability
+"http://www.example.org/course/ACCO/340" "Psychoeducation" http://dbpedia.org/resource/Psychoeducation
+"http://www.example.org/course/ACTT/209" "Youth Work" http://dbpedia.org/resource/Youth_work
+"http://www.example.org/course/ACTT/209" "Ethics" http://dbpedia.org/resource/Ethics
+"http://www.example.org/course/ACTT/209" "applied ethics" http://dbpedia.org/resource/Applied_ethics
+"http://www.example.org/course/ACTT/209" "youth work" http://dbpedia.org/resource/Youth_work

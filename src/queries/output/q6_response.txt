@@ -1,0 +1,13 @@
+http://dbpedia.org/resource/Facilitator 
+http://dbpedia.org/resource/Education 
+http://dbpedia.org/resource/Ethics 
+http://dbpedia.org/resource/Self-reflection 
+http://dbpedia.org/resource/Failure 
+http://dbpedia.org/resource/Motivation 
+http://dbpedia.org/resource/Psychological_stress 
+http://dbpedia.org/resource/Mindfulness 
+http://dbpedia.org/resource/Self-care 
+http://dbpedia.org/resource/Self-monitoring 
+http://dbpedia.org/resource/Education 
+http://dbpedia.org/resource/Norfolk_Scope 
+http://dbpedia.org/resource/Adult_education 

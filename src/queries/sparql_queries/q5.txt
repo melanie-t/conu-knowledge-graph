@@ -1,0 +1,8 @@
+SELECT ?student
+WHERE {
+  ?course sioc:topic <{topic_uri}> .
+  ?student exprop:enrolled_in ?course_enrolled .
+  ?course_enrolled course: ?course .
+  ?course_enrolled exprop:completed_with ?grade .
+  FILTER (?grade >= 50)
+}
