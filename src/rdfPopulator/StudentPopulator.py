@@ -19,6 +19,7 @@ def init_student(graph):
         graph.add((URIRef(student_namespace_uri + students[i].email), URIRef(property_uri + "identified_by"),
                    Literal(students[i].id)))
         graph.add((URIRef(student_namespace_uri + students[i].email), RDF.type, URIRef(student_namespace_uri + "Student")))
+        graph.add((URIRef(student_namespace_uri + students[i].email), FOAF.mail, Literal(students[i].email)))
 
         for j in range(len(students[i].curriculum)):
             course_uri = courses_namespace_uri + students[i].curriculum[j].subject + '/' + str(
