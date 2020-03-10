@@ -1,0 +1,273 @@
+@prefix ns1: <http://www.example.org/property/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.example.org/student/bianca@concordia.ca> a <http://www.example.org/student/Student> ;
+    ns3:name "Bianca Patry" ;
+    ns1:enrolled_in <http://www.example.org/course/ADED/202/bianca@concordia.ca/SUMMER/2016>,
+        <http://www.example.org/course/COMP/108/bianca@concordia.ca/FALL/2019>,
+        <http://www.example.org/course/TESL/491/bianca@concordia.ca/SUMMER/2015> ;
+    ns1:enrolled_to <http://www.example.org/course/ADED/202>,
+        <http://www.example.org/course/COMP/108>,
+        <http://www.example.org/course/TESL/491> ;
+    ns1:identified_by "211111" ;
+    ns2:mail "bianca@concordia.ca" .
+
+<http://www.example.org/student/bob123@gmail.com> a <http://www.example.org/student/Student> ;
+    ns3:name "Bob Sophomore" ;
+    ns1:enrolled_in <http://www.example.org/course/ADED/202/bob123@gmail.com/SUMMER/2015>,
+        <http://www.example.org/course/AHSC/400/bob123@gmail.com/WINTER/2018>,
+        <http://www.example.org/course/UNSS/200/bob123@gmail.com/FALL/2012> ;
+    ns1:enrolled_to <http://www.example.org/course/ADED/202>,
+        <http://www.example.org/course/AHSC/400>,
+        <http://www.example.org/course/UNSS/200> ;
+    ns1:identified_by "333333" ;
+    ns2:mail "bob123@gmail.com" .
+
+<http://www.example.org/student/frank@outlook.com> a <http://www.example.org/student/Student> ;
+    ns3:name "Frank Gye" ;
+    ns1:enrolled_in <http://www.example.org/course/ADED/202/frank@outlook.com/FALL/2014>,
+        <http://www.example.org/course/COMP/326/frank@outlook.com/FALL/2010>,
+        <http://www.example.org/course/SSDB/428/frank@outlook.com/WINTER/2008> ;
+    ns1:enrolled_to <http://www.example.org/course/ADED/202>,
+        <http://www.example.org/course/COMP/326>,
+        <http://www.example.org/course/SSDB/428> ;
+    ns1:identified_by "422222" ;
+    ns2:mail "frank@outlook.com" .
+
+<http://www.example.org/student/giovanni@concordia.ca> a <http://www.example.org/student/Student> ;
+    ns3:name "Giovanni Price" ;
+    ns1:enrolled_in <http://www.example.org/course/CHEM/217/giovanni@concordia.ca/FALL/2019>,
+        <http://www.example.org/course/CHEM/217/giovanni@concordia.ca/SUMMER/2019>,
+        <http://www.example.org/course/FPST/415/giovanni@concordia.ca/FALL/2019> ;
+    ns1:enrolled_to <http://www.example.org/course/CHEM/217>,
+        <http://www.example.org/course/FPST/415> ;
+    ns1:identified_by "926211" ;
+    ns2:mail "giovanni@concordia.ca" .
+
+<http://www.example.org/student/gonebytheminute@rojas.com> a <http://www.example.org/student/Student> ;
+    ns3:name "Alejandro Rojas" ;
+    ns1:enrolled_in <http://www.example.org/course/THEO/201/gonebytheminute@rojas.com/SUMMER/2001>,
+        <http://www.example.org/course/THEO/212/gonebytheminute@rojas.com/FALL/2009>,
+        <http://www.example.org/course/THEO/298/gonebytheminute@rojas.com/WINTER/2011> ;
+    ns1:enrolled_to <http://www.example.org/course/THEO/201>,
+        <http://www.example.org/course/THEO/212>,
+        <http://www.example.org/course/THEO/298> ;
+    ns1:identified_by "674444" ;
+    ns2:mail "gonebytheminute@rojas.com" .
+
+<http://www.example.org/student/jordan@sala.ca> a <http://www.example.org/student/Student> ;
+    ns3:name "Jordan Sala" ;
+    ns1:enrolled_in <http://www.example.org/course/CHEM/203/jordan@sala.ca/SUMMER/2011>,
+        <http://www.example.org/course/POLI/353/jordan@sala.ca/WINTER/2011>,
+        <http://www.example.org/course/THEO/298/jordan@sala.ca/WINTER/2011> ;
+    ns1:enrolled_to <http://www.example.org/course/CHEM/203>,
+        <http://www.example.org/course/POLI/353>,
+        <http://www.example.org/course/THEO/298> ;
+    ns1:identified_by "143333" ;
+    ns2:mail "jordan@sala.ca" .
+
+<http://www.example.org/student/julie@snyder.com> a <http://www.example.org/student/Student> ;
+    ns3:name "Julie Snyder" ;
+    ns1:enrolled_in <http://www.example.org/course/COMP/108/julie@snyder.com/WINTER/2005>,
+        <http://www.example.org/course/TESL/491/julie@snyder.com/SUMMER/2001>,
+        <http://www.example.org/course/WSDB/298/julie@snyder.com/SUMMER/2007> ;
+    ns1:enrolled_to <http://www.example.org/course/COMP/108>,
+        <http://www.example.org/course/TESL/491>,
+        <http://www.example.org/course/WSDB/298> ;
+    ns1:identified_by "999999" ;
+    ns2:mail "julie@snyder.com" .
+
+<http://www.example.org/student/roger@moores.ca> a <http://www.example.org/student/Student> ;
+    ns3:name "Roger Moores" ;
+    ns1:enrolled_in <http://www.example.org/course/ADED/202/roger@moores.ca/WINTER/2016>,
+        <http://www.example.org/course/COMP/108/roger@moores.ca/SUMMER/2019>,
+        <http://www.example.org/course/TESL/491/roger@moores.ca/FALL/2015> ;
+    ns1:enrolled_to <http://www.example.org/course/ADED/202>,
+        <http://www.example.org/course/COMP/108>,
+        <http://www.example.org/course/TESL/491> ;
+    ns1:identified_by "100000" ;
+    ns2:mail "roger@moores.ca" .
+
+<http://www.example.org/student/spiri101@gmail.com> a <http://www.example.org/student/Student> ;
+    ns3:name "Florence Spiri" ;
+    ns1:enrolled_in <http://www.example.org/course/ARTH/263/spiri101@gmail.com/FALL/2010>,
+        <http://www.example.org/course/EXCI/453/spiri101@gmail.com/WINTER/2015>,
+        <http://www.example.org/course/EXCI/455/spiri101@gmail.com/WINTER/2007> ;
+    ns1:enrolled_to <http://www.example.org/course/ARTH/263>,
+        <http://www.example.org/course/EXCI/453>,
+        <http://www.example.org/course/EXCI/455> ;
+    ns1:identified_by "666666" ;
+    ns2:mail "spiri101@gmail.com" .
+
+<http://www.example.org/student/spirit0fwind@outlook.com> a <http://www.example.org/student/Student> ;
+    ns3:name "George Soros" ;
+    ns1:enrolled_in <http://www.example.org/course/CATA/365/spirit0fwind@outlook.com/FALL/2008>,
+        <http://www.example.org/course/EXCI/204/spirit0fwind@outlook.com/FALL/2011>,
+        <http://www.example.org/course/EXCI/218/spirit0fwind@outlook.com/SUMMER/2012> ;
+    ns1:enrolled_to <http://www.example.org/course/CATA/365>,
+        <http://www.example.org/course/EXCI/204>,
+        <http://www.example.org/course/EXCI/218> ;
+    ns1:identified_by "548888" ;
+    ns2:mail "spirit0fwind@outlook.com" .
+
+<http://www.example.org/course/ADED/202/bianca@concordia.ca/SUMMER/2016> <http://www.example.org/course/> <http://www.example.org/course/ADED/202> ;
+    ns1:completed_with 70 ;
+    ns1:enrolled_semester <http://www.example.org/semester/SUMMER> ;
+    ns1:enrolled_year "2016" .
+
+<http://www.example.org/course/ADED/202/bob123@gmail.com/SUMMER/2015> <http://www.example.org/course/> <http://www.example.org/course/ADED/202> ;
+    ns1:completed_with 75 ;
+    ns1:enrolled_semester <http://www.example.org/semester/SUMMER> ;
+    ns1:enrolled_year "2015" .
+
+<http://www.example.org/course/ADED/202/frank@outlook.com/FALL/2014> <http://www.example.org/course/> <http://www.example.org/course/ADED/202> ;
+    ns1:completed_with 55 ;
+    ns1:enrolled_semester <http://www.example.org/semester/FALL> ;
+    ns1:enrolled_year "2014" .
+
+<http://www.example.org/course/ADED/202/roger@moores.ca/WINTER/2016> <http://www.example.org/course/> <http://www.example.org/course/ADED/202> ;
+    ns1:completed_with 44 ;
+    ns1:enrolled_semester <http://www.example.org/semester/WINTER> ;
+    ns1:enrolled_year "2016" .
+
+<http://www.example.org/course/AHSC/400/bob123@gmail.com/WINTER/2018> <http://www.example.org/course/> <http://www.example.org/course/AHSC/400> ;
+    ns1:completed_with 90 ;
+    ns1:enrolled_semester <http://www.example.org/semester/WINTER> ;
+    ns1:enrolled_year "2018" .
+
+<http://www.example.org/course/ARTH/263/spiri101@gmail.com/FALL/2010> <http://www.example.org/course/> <http://www.example.org/course/ARTH/263> ;
+    ns1:completed_with 78 ;
+    ns1:enrolled_semester <http://www.example.org/semester/FALL> ;
+    ns1:enrolled_year "2010" .
+
+<http://www.example.org/course/CATA/365/spirit0fwind@outlook.com/FALL/2008> <http://www.example.org/course/> <http://www.example.org/course/CATA/365> ;
+    ns1:completed_with 84 ;
+    ns1:enrolled_semester <http://www.example.org/semester/FALL> ;
+    ns1:enrolled_year "2008" .
+
+<http://www.example.org/course/CHEM/203/jordan@sala.ca/SUMMER/2011> <http://www.example.org/course/> <http://www.example.org/course/CHEM/203> ;
+    ns1:completed_with 79 ;
+    ns1:enrolled_semester <http://www.example.org/semester/SUMMER> ;
+    ns1:enrolled_year "2011" .
+
+<http://www.example.org/course/CHEM/217/giovanni@concordia.ca/FALL/2019> <http://www.example.org/course/> <http://www.example.org/course/CHEM/217> ;
+    ns1:completed_with 70 ;
+    ns1:enrolled_semester <http://www.example.org/semester/FALL> ;
+    ns1:enrolled_year "2019" .
+
+<http://www.example.org/course/CHEM/217/giovanni@concordia.ca/SUMMER/2019> <http://www.example.org/course/> <http://www.example.org/course/CHEM/217> ;
+    ns1:completed_with 45 ;
+    ns1:enrolled_semester <http://www.example.org/semester/SUMMER> ;
+    ns1:enrolled_year "2019" .
+
+<http://www.example.org/course/COMP/108/bianca@concordia.ca/FALL/2019> <http://www.example.org/course/> <http://www.example.org/course/COMP/108> ;
+    ns1:completed_with 85 ;
+    ns1:enrolled_semester <http://www.example.org/semester/FALL> ;
+    ns1:enrolled_year "2019" .
+
+<http://www.example.org/course/COMP/108/julie@snyder.com/WINTER/2005> <http://www.example.org/course/> <http://www.example.org/course/COMP/108> ;
+    ns1:completed_with 89 ;
+    ns1:enrolled_semester <http://www.example.org/semester/WINTER> ;
+    ns1:enrolled_year "2005" .
+
+<http://www.example.org/course/COMP/108/roger@moores.ca/SUMMER/2019> <http://www.example.org/course/> <http://www.example.org/course/COMP/108> ;
+    ns1:completed_with 88 ;
+    ns1:enrolled_semester <http://www.example.org/semester/SUMMER> ;
+    ns1:enrolled_year "2019" .
+
+<http://www.example.org/course/COMP/326/frank@outlook.com/FALL/2010> <http://www.example.org/course/> <http://www.example.org/course/COMP/326> ;
+    ns1:completed_with 32 ;
+    ns1:enrolled_semester <http://www.example.org/semester/FALL> ;
+    ns1:enrolled_year "2010" .
+
+<http://www.example.org/course/EXCI/204/spirit0fwind@outlook.com/FALL/2011> <http://www.example.org/course/> <http://www.example.org/course/EXCI/204> ;
+    ns1:completed_with 83 ;
+    ns1:enrolled_semester <http://www.example.org/semester/FALL> ;
+    ns1:enrolled_year "2011" .
+
+<http://www.example.org/course/EXCI/218/spirit0fwind@outlook.com/SUMMER/2012> <http://www.example.org/course/> <http://www.example.org/course/EXCI/218> ;
+    ns1:completed_with 81 ;
+    ns1:enrolled_semester <http://www.example.org/semester/SUMMER> ;
+    ns1:enrolled_year "2012" .
+
+<http://www.example.org/course/EXCI/453/spiri101@gmail.com/WINTER/2015> <http://www.example.org/course/> <http://www.example.org/course/EXCI/453> ;
+    ns1:completed_with 87 ;
+    ns1:enrolled_semester <http://www.example.org/semester/WINTER> ;
+    ns1:enrolled_year "2015" .
+
+<http://www.example.org/course/EXCI/455/spiri101@gmail.com/WINTER/2007> <http://www.example.org/course/> <http://www.example.org/course/EXCI/455> ;
+    ns1:completed_with 67 ;
+    ns1:enrolled_semester <http://www.example.org/semester/WINTER> ;
+    ns1:enrolled_year "2007" .
+
+<http://www.example.org/course/FPST/415/giovanni@concordia.ca/FALL/2019> <http://www.example.org/course/> <http://www.example.org/course/FPST/415> ;
+    ns1:completed_with 65 ;
+    ns1:enrolled_semester <http://www.example.org/semester/FALL> ;
+    ns1:enrolled_year "2019" .
+
+<http://www.example.org/course/POLI/353/jordan@sala.ca/WINTER/2011> <http://www.example.org/course/> <http://www.example.org/course/POLI/353> ;
+    ns1:completed_with 65 ;
+    ns1:enrolled_semester <http://www.example.org/semester/WINTER> ;
+    ns1:enrolled_year "2011" .
+
+<http://www.example.org/course/SSDB/428/frank@outlook.com/WINTER/2008> <http://www.example.org/course/> <http://www.example.org/course/SSDB/428> ;
+    ns1:completed_with 43 ;
+    ns1:enrolled_semester <http://www.example.org/semester/WINTER> ;
+    ns1:enrolled_year "2008" .
+
+<http://www.example.org/course/TESL/491/bianca@concordia.ca/SUMMER/2015> <http://www.example.org/course/> <http://www.example.org/course/TESL/491> ;
+    ns1:completed_with 72 ;
+    ns1:enrolled_semester <http://www.example.org/semester/SUMMER> ;
+    ns1:enrolled_year "2015" .
+
+<http://www.example.org/course/TESL/491/julie@snyder.com/SUMMER/2001> <http://www.example.org/course/> <http://www.example.org/course/TESL/491> ;
+    ns1:completed_with 95 ;
+    ns1:enrolled_semester <http://www.example.org/semester/SUMMER> ;
+    ns1:enrolled_year "2001" .
+
+<http://www.example.org/course/TESL/491/roger@moores.ca/FALL/2015> <http://www.example.org/course/> <http://www.example.org/course/TESL/491> ;
+    ns1:completed_with 83 ;
+    ns1:enrolled_semester <http://www.example.org/semester/FALL> ;
+    ns1:enrolled_year "2015" .
+
+<http://www.example.org/course/THEO/201/gonebytheminute@rojas.com/SUMMER/2001> <http://www.example.org/course/> <http://www.example.org/course/THEO/201> ;
+    ns1:completed_with 85 ;
+    ns1:enrolled_semester <http://www.example.org/semester/SUMMER> ;
+    ns1:enrolled_year "2001" .
+
+<http://www.example.org/course/THEO/212/gonebytheminute@rojas.com/FALL/2009> <http://www.example.org/course/> <http://www.example.org/course/THEO/212> ;
+    ns1:completed_with 87 ;
+    ns1:enrolled_semester <http://www.example.org/semester/FALL> ;
+    ns1:enrolled_year "2009" .
+
+<http://www.example.org/course/THEO/298/gonebytheminute@rojas.com/WINTER/2011> <http://www.example.org/course/> <http://www.example.org/course/THEO/298> ;
+    ns1:completed_with 100 ;
+    ns1:enrolled_semester <http://www.example.org/semester/WINTER> ;
+    ns1:enrolled_year "2011" .
+
+<http://www.example.org/course/THEO/298/jordan@sala.ca/WINTER/2011> <http://www.example.org/course/> <http://www.example.org/course/THEO/298> ;
+    ns1:completed_with 78 ;
+    ns1:enrolled_semester <http://www.example.org/semester/WINTER> ;
+    ns1:enrolled_year "2011" .
+
+<http://www.example.org/course/UNSS/200/bob123@gmail.com/FALL/2012> <http://www.example.org/course/> <http://www.example.org/course/UNSS/200> ;
+    ns1:completed_with 88 ;
+    ns1:enrolled_semester <http://www.example.org/semester/FALL> ;
+    ns1:enrolled_year "2012" .
+
+<http://www.example.org/course/WSDB/298/julie@snyder.com/SUMMER/2007> <http://www.example.org/course/> <http://www.example.org/course/WSDB/298> ;
+    ns1:completed_with 99 ;
+    ns1:enrolled_semester <http://www.example.org/semester/SUMMER> ;
+    ns1:enrolled_year "2007" .
+
+<http://www.example.org/semester/WINTER> a <http://www.example.org/semester/TermSeason> .
+
+<http://www.example.org/semester/SUMMER> a <http://www.example.org/semester/TermSeason> .
+
+<http://www.example.org/semester/FALL> a <http://www.example.org/semester/TermSeason> .
+
