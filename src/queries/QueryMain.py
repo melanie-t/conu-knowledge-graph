@@ -1,7 +1,6 @@
 from rdflib import Graph
 from src.queries import Queries
 
-
 def create_prefix(output_file_path):
     prefix_list = ''
     # Import prefixes from ttl
@@ -33,6 +32,8 @@ if __name__ == '__main__':
     g.parse(output_file, format="turtle")
     prefix = create_prefix(output_file)
 
-    Queries.Q1.query(prefix=prefix, graph=g)
-    Queries.Q3.query(course_uri="http://www.example.org/course/ELEC/423", prefix=prefix, graph=g)
-    Queries.Q4.query(student_id="333333", prefix=prefix, graph=g)
+    # Queries.Q1.query(prefix=prefix, graph=g)
+    Queries.Q2.query(prefix=prefix, graph=g)
+    # Queries.Q3.query(course_uri="http://www.example.org/course/ELEC/423", prefix=prefix, graph=g)
+    # Queries.Q4.query(student_id="333333", prefix=prefix, graph=g)
+    # Queries.Q5.query(topic_uri="http://dbpedia.org/resource/Superconductivity", prefix=prefix, graph=g)

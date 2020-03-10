@@ -2,6 +2,7 @@ import os
 import errno
 from rdflib import Graph
 
+
 class Q1:
     # 1. Total number of triples in the KB
     @staticmethod
@@ -14,7 +15,7 @@ class Q1:
 
         construct_results = Graph()
         results = graph.query(query_string)
-        save_results(results, output, query_num)
+        save_results(results, output)
 
 
 class Q2:
@@ -29,7 +30,7 @@ class Q2:
 
         construct_results = Graph()
         results = graph.query(query_string)
-        save_results(results, output, query_num)
+        save_results(results, output)
 
 
 class Q3:
@@ -45,7 +46,7 @@ class Q3:
 
         construct_results = Graph()
         results = graph.query(query_string)
-        save_results(results, output, query_num)
+        save_results(results, output)
 
 
 class Q4:
@@ -62,24 +63,24 @@ class Q4:
 
         construct_results = Graph()
         results = graph.query(query_string)
-        save_results(results, output, query_num)
+        save_results(results, output)
 
 
 class Q5:
     # 5. For a given topic, list all students that are familiar with the topic (i.e., took,
     # and did not fail, a course that covered the topic
     @staticmethod
-    def query(student_id, prefix, graph):
+    def query(topic_uri, prefix, graph):
         query_num = "q5"
         query, output = open_query_files(query_num)
         query_string = query.read()
         query_string = prefix + query_string
         # Replace values
-
+        query_string = query_string.replace("{topic_uri}", topic_uri)
         print("Query 5\n" + query_string)
         results = Graph()
         results = graph.query(query_string)
-        save_results(results, output, query_num)
+        save_results(results, output)
 
 
 class Q6:
@@ -96,31 +97,29 @@ class Q6:
         print("Query 6\n" + query_string)
         results = Graph()
         results = graph.query(query_string)
-        save_results(results, output, query_num)
+        save_results(results, output)
 
 
 def open_query_files(query_num):
+    make_sure_path_exists("./output/")
+
     query_file_path = "./sparql_queries/" + f"{query_num}.txt"
     output_file_path = "./output/" + f"{query_num}_response.txt"
 
-    make_sure_path_exists(query_file_path)
-    make_sure_path_exists(output_file_path)
-
     query = open(query_file_path, "r")
-    output = open(output_file_path, "r")
+    output = open(output_file_path, "w+")
 
     return query, output
 
 
-def save_results(results, output_file, query_num):
-    output_ttl = str(query_num) + ".ttl"
+def save_results(results, output_file):
     for row in results:
         result = ''
         for entry in row:
             result = result + str(entry) + ' '
         result = result + '\n'
         print(result)
-        output_file.write(result)
+        output_file.write(str(result))
 
 
 # Source: https://stackoverflow.com/questions/273192/how-can-i-safely-create-a-nested-directory/14364249#14364249

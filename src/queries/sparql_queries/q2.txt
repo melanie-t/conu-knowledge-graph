@@ -1,6 +1,9 @@
-SELECT (count(?s) as ?studentCount) (count(?c) as ?courseCount) (count(?t) as ?topicCount)
+SELECT (COUNT(DISTINCT ?s) as ?studentCount) 
+(COUNT(DISTINCT ?c) as ?courseCount) 
+(COUNT(DISTINCT ?t) as ?topicCount)
 WHERE
-   { ?s a student:Student .
-     ?c a course:Course .
-     ?t a topic: .
+   { 
+      ?s a student:Student .
+      ?c a course:Course .
+      ?t a topic: .
    }

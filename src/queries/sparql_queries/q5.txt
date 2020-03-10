@@ -4,7 +4,7 @@ WHERE
     ?c        rdf:type              course:Course .
     ?t        rdf:type              topic: .
     ?c        sioc:topic            ?t .
-    ?s        exprop:enrolled_to    ?c ;
+    ?s        exprop:enrolled_to    ?c .
               exprop:enrolled_in    ?curriculem_course .
     ?curriculem_course exprop:completed_with  ?grade.
     FILTER( ?course = <{topic_uri}> )
