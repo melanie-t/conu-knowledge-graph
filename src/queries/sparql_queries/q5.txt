@@ -1,0 +1,13 @@
+SELECT  ?s
+WHERE
+  { ?s        rdf:type              student:Student .
+    ?c        rdf:type              course:Course .
+    ?t        rdf:type              topic: .
+    ?c        sioc:topic            ?t .
+    ?s        exprop:enrolled_to    ?c ;
+              exprop:enrolled_in    ?curriculem_course .
+    ?curriculem_course exprop:completed_with  ?grade.
+    FILTER( ?course = <{topic_uri}> )
+    FILTER contains(?curriculem_course, ?c)
+    FILTER ( ?grade >= 50 )
+  }

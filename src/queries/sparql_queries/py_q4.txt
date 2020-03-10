@@ -1,8 +1,0 @@
-SELECT  ?completed_course ?grade ?course_label 
-WHERE {
-    ?student a student:Student .
-    ?student exprop:identified_by "{student_id}" .
-    ?student exprop:enrolled_in ?completed_course .
-    ?completed_course exprop:completed_with ?grade .
-    OPTIONAL { ?completed_course rdfs:label ?course_label }
-}

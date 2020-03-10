@@ -1,0 +1,6 @@
+SELECT (count(?s) as ?studentCount) (count(?c) as ?courseCount) (count(?t) as ?topicCount)
+WHERE
+   { ?s a student:Student .
+     ?c a course:Course .
+     ?t a topic: .
+   }
