@@ -19,6 +19,6 @@ if __name__ == '__main__':
 
     # 4. Generate topics using course set
     # Takes the longest to get topics
-    # init_topics(graph, course_set)
+    init_topics(graph)
 
     graph.serialize(destination='output.ttl', format='turtle')
