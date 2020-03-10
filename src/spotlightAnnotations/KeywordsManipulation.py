@@ -1,4 +1,4 @@
-from courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt # to change... import not good
+from courseExtraction.CourseExtractorFromTxt import CourseExtractorFromTxt
 
 class KeywordsManipulation:
     input_file_URI = '../spotlight-keywords.txt'
@@ -117,7 +117,7 @@ class KeywordsManipulation:
             list_URI_paths = ""
             for j in result_list[i]:
                 list_URI_paths+=j+","
-            output_file.write("\""+set_keywords[i][KEYWORD_INDEX]+"\" "+set_keywords[i][URI_INDEX]+" ["+
+            output_file.write("\""+set_keywords[i][KEYWORD_INDEX]+"\" "+set_keywords[i][URI_INDEX].rstrip()+" ["+
                               list_URI_paths[:-1]+"]\n")
 
         output_file.close()
