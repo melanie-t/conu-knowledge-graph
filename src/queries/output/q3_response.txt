@@ -1,36 +1,4 @@
-Noise http://dbpedia.org/resource/Noise 
-Mosfets http://dbpedia.org/resource/MOSFET 
-Mos http://dbpedia.org/resource/MOSFET 
-Gating http://dbpedia.org/resource/MOSFET 
-Mosfet http://dbpedia.org/resource/MOSFET 
-Field Effect Transistors http://dbpedia.org/resource/MOSFET 
-Mos Capacitors http://dbpedia.org/resource/MOSFET 
-Voltage http://dbpedia.org/resource/Voltage 
-Operational Amplifier http://dbpedia.org/resource/Operational_amplifier 
-Operational Amplifiers http://dbpedia.org/resource/Operational_amplifier 
-Op-Amps http://dbpedia.org/resource/Operational_amplifier 
-Ideal http://dbpedia.org/resource/Operational_amplifier 
-Op-Amp http://dbpedia.org/resource/Operational_amplifier 
-Amplification http://dbpedia.org/resource/Operational_amplifier 
-Electronic Circuits http://dbpedia.org/resource/Electronic_circuit 
-Circuit http://dbpedia.org/resource/Electronic_circuit 
-Transistor http://dbpedia.org/resource/Bipolar_junction_transistor 
-Bipolar Transistors http://dbpedia.org/resource/Bipolar_junction_transistor 
-Bjt http://dbpedia.org/resource/Bipolar_junction_transistor 
-Transimpedance http://dbpedia.org/resource/Transconductance 
-Transconductance http://dbpedia.org/resource/Transconductance 
-Reactive Power http://dbpedia.org/resource/AC_power 
-Ac http://dbpedia.org/resource/AC_power 
-Common Mode http://dbpedia.org/resource/Common-mode_rejection_ratio 
-Common-Mode Rejection Ratio http://dbpedia.org/resource/Common-mode_rejection_ratio 
-Cmos http://dbpedia.org/resource/CMOS 
-Large Scale Integration http://dbpedia.org/resource/Integrated_circuit 
-Integrated Circuit http://dbpedia.org/resource/Integrated_circuit 
-Ic http://dbpedia.org/resource/Integrated_circuit 
-Ics http://dbpedia.org/resource/Integrated_circuit 
-Integrated Circuits http://dbpedia.org/resource/Integrated_circuit 
-Die http://dbpedia.org/resource/Integrated_circuit 
-Vlsi http://dbpedia.org/resource/Very-large-scale_integration 
-Analog http://dbpedia.org/resource/Analog_Science_Fiction_and_Fact 
-Feedback http://dbpedia.org/resource/Feedback 
-Feed-Back http://dbpedia.org/resource/Feedback 
+http://dbpedia.org/resource/Comm Comm 
+http://dbpedia.org/resource/Technology Technology 
+http://dbpedia.org/resource/Marketing_management Marketing Management 
+http://dbpedia.org/resource/Marketing Marketing 

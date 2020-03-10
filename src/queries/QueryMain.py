@@ -33,7 +33,8 @@ if __name__ == '__main__':
     prefix = create_prefix(output_file)
 
     # Queries.Q1.query(prefix=prefix, graph=g)
-    Queries.Q2.query(prefix=prefix, graph=g)
-    # Queries.Q3.query(course_uri="http://www.example.org/course/ELEC/423", prefix=prefix, graph=g)
+    # Queries.Q2.query(prefix=prefix, graph=g)
+    # Queries.Q3.query(course_uri="http://www.example.org/course/COMM/223", prefix=prefix, graph=g)
     # Queries.Q4.query(student_id="333333", prefix=prefix, graph=g)
-    # Queries.Q5.query(topic_uri="http://dbpedia.org/resource/Superconductivity", prefix=prefix, graph=g)
+    Queries.Q5.query(topic_uri="http://dbpedia.org/resource/Superconductivity", prefix=prefix, graph=g)
+    # Queries.Q6.query(student_id="333333", prefix=prefix, graph=g)

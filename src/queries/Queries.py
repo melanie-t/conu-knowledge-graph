@@ -93,7 +93,7 @@ class Q6:
         query_string = query.read()
         query_string = prefix + query_string
         # Replace values
-
+        query_string = query_string.replace("{student_id}", student_id)
         print("Query 6\n" + query_string)
         results = Graph()
         results = graph.query(query_string)
