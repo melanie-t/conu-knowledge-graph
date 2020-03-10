@@ -35,7 +35,7 @@ class Q3:
         # Query 1. Total number of triples in the KB
         query, output = open_query_files("q3")
         query_string = query.read()
-        query_string = query_string.replace("<course>", f"<{course_uri}>")
+        query_string = query_string.replace("{course_uri}", str(course_uri))
         query_string = prefix + query_string
         print("Query 3\n" + query_string)
 
@@ -51,7 +51,7 @@ class Q4:
         query_string = query.read()
         query_string = prefix + query_string
         # Replace values
-        query_string = query_string.replace("<sid>", f"\"{student_id}\"")
+        query_string = query_string.replace("{student_id}", str(student_id))
         print("Query 4\n" + query_string)
 
         results = graph.query(query_string)
