@@ -1,3 +1,5 @@
+import re
+
 from rdflib import URIRef, Literal, Graph
 from rdflib.namespace import RDF, RDFS
 
@@ -22,17 +24,14 @@ def init_topics(graph):
     # Adding Topics for Courses
 
     all_courses = open("../spotlightAnnotations/spotlight-linkCourse.txt").readlines()
-
     for course in all_courses:
-        print(course)
-        # Read next line containing course codes
-    #     course = course.replace("\n", "")
-    #     course_arg = course.split("\" ")
-    #     course_uri = course_arg[0].replace("\"", "")
-    #     topic_uri = course_arg[2]
-    #     graph.add((URIRef(course_uri), URIRef(sioc_namespace+'topic'), URIRef(topic_uri)))
+        course = course.replace("\n", "")
+        course_arg = re.split('\" | \[', course)
+        topic_uri = course_arg[1]
+        course_uris = course_arg[2]
+        course_uris = course_uris.replace("]", "")
+        course_list = course_uris.split(",")
 
-
-graph = Graph()
-init_topics(graph)
-graph.serialize(destination='topics.ttl', format='turtle')
+        for course_uri in course_list:
+            if course_uri != '':
+                graph.add((URIRef(courses_namespace_uri+course_uri), URIRef(sioc_namespace + 'topic'), URIRef(topic_uri)))

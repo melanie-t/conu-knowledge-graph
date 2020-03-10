@@ -1,1 +1,4 @@
-SELECT (COUNT(*) as ?Triples) WHERE{?s ?p ?o .}
+SELECT (COUNT(*) as ?Triples) 
+WHERE{
+    ?s ?p ?o .
+}

@@ -1,1 +1,4 @@
-Analog http://dbpedia.org/resource/Analogue_electronics 
+http://dbpedia.org/resource/Comm Comm 
+http://dbpedia.org/resource/Technology Technology 
+http://dbpedia.org/resource/Marketing_management Marketing Management 
+http://dbpedia.org/resource/Marketing Marketing 

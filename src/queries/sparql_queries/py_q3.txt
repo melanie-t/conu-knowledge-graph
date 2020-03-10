@@ -1,6 +1,0 @@
-SELECT ?label ?topic
-WHERE {
-    ?course sioc:topic ?topic .
-    ?topic rdfs:label ?label .
-    FILTER( ?course = <{course_uri}> )
-}

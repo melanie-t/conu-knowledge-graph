@@ -43,12 +43,14 @@ def init_student(graph):
             # student completed with 'grade'
             graph.add((URIRef(student_course_registration_uri), URIRef(property_uri + "completed_with"),
                        Literal(students[i].curriculum[j].grade)))
+            # course name
+            graph.add((URIRef(student_course_registration_uri), URIRef(courses_namespace_uri), URIRef(course_uri)))
             # 'season' is a TermSeason
             graph.add((URIRef(semester_namespace_uri + students[i].curriculum[j].getTermSemester()), RDF.type,
                        URIRef(semester_namespace_uri + "TermSeason")))
 
     return graph
 
-graph = Graph()
-init_student(graph)
-graph.serialize(destination='students.ttl', format='turtle')
+g = Graph()
+init_student(g)
+g.serialize("students.ttl", format="turtle")
