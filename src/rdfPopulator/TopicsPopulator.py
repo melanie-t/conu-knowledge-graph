@@ -6,6 +6,7 @@ from rdflib.namespace import RDF, RDFS
 def init_topics(graph):
     sioc_namespace = "http://rdfs.org/sioc/ns#"
     topic_namespace_uri = "http://www.example.org/topic/"
+    courses_namespace_uri = "http://www.example.org/course/"
 
     # Add Topic triples
     all_topics = open("../spotlightAnnotations/spotlight-set.txt").readlines()
@@ -19,8 +20,12 @@ def init_topics(graph):
         graph.add((URIRef(uri), RDFS.label, Literal(label.title())))
 
     # Adding Topics for Courses
-    # all_courses = open("../spotlightAnnotations/spotlight-courses.txt").readlines()
-    # for course in all_courses:
+
+    all_courses = open("../spotlightAnnotations/spotlight-linkCourse.txt").readlines()
+
+    for course in all_courses:
+        print(course)
+        # Read next line containing course codes
     #     course = course.replace("\n", "")
     #     course_arg = course.split("\" ")
     #     course_uri = course_arg[0].replace("\"", "")
@@ -28,6 +33,6 @@ def init_topics(graph):
     #     graph.add((URIRef(course_uri), URIRef(sioc_namespace+'topic'), URIRef(topic_uri)))
 
 
-# graph = Graph()
-# init_topics(graph)
-# graph.serialize(destination='topics.ttl', format='turtle')
+graph = Graph()
+init_topics(graph)
+graph.serialize(destination='topics.ttl', format='turtle')

@@ -1,5 +1,5 @@
-from rdflib import URIRef, Literal
-from rdflib.namespace import RDF
+from rdflib import URIRef, Literal, Graph
+from rdflib.namespace import RDF, FOAF
 from src.studentCreation.StudentGenerator import StudentGenerator
 
 
@@ -48,3 +48,7 @@ def init_student(graph):
                        URIRef(semester_namespace_uri + "TermSeason")))
 
     return graph
+
+graph = Graph()
+init_student(graph)
+graph.serialize(destination='students.ttl', format='turtle')
