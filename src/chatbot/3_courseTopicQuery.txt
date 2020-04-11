@@ -1,0 +1,25 @@
+PREFIX course: <http://www.example.org/course/> 
+PREFIX dbo: <http://dbpedia.org/ontology/> 
+PREFIX dbp: <http://dbpedia.org/property/> 
+PREFIX exprop: <http://www.example.org/property/>
+PREFIX ns1: <http://xmlns.com/foaf/0.1/> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX sch: <http://schema.org/> 
+PREFIX sioc: <http://rdfs.org/sioc/ns#> 
+PREFIX student: <http://www.example.org/student/> 
+PREFIX topic: <http://www.example.org/topic/> 
+PREFIX xml: <http://www.w3.org/XML/1998/namespace> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+
+SELECT ?courseName ?courseDescription
+WHERE {
+  ?topic 	rdf:type 		topic: ;
+  			rdfs:label 		"Intelligent Systems" .
+
+  ?course 	rdf:type 		course:Course ;
+		  	rdfs:label 		?courseName ;
+		  	sioc:topic 		?topic .
+		  	
+  OPTIONAL {?course sioc:about ?courseDescription }
+}
