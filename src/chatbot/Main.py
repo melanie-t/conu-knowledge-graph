@@ -3,7 +3,7 @@ from src.chatbot.inputParser import parseInput
 
 def main():
     print("Hi there, I am ConU ChatBot :)")
-    while(True):
+    while True:
 
         q1 = "What's COMP 474 about?"
         q2 = "Which courses did Bianca Patry take?"
