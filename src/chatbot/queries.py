@@ -23,7 +23,8 @@ def query1_courseDescription(subject, code):
            f"          	            course:subject 	\"{subject}\" ; " \
            f"          	            sioc:about 		?course_description . " \
            f"}}"
-    print(query)
+    # print(query)
+    return query
 
 
 def query2_studentCourses(student):
@@ -40,7 +41,8 @@ def query2_studentCourses(student):
             f"                   			exprop:enrolled_year 		?year . " \
             f"  		?course 			rdfs:label 					?courseName ." \
             f"}}"
-    print(query)
+    # print(query)
+    return query
 
 
 def query3_courseTopics(topic):
@@ -54,7 +56,8 @@ def query3_courseTopics(topic):
             f"		  	                    sioc:topic 		?topic ." \
             f"          OPTIONAL {{?course sioc:about ?courseDescription }}" \
             f"}}"
-    print(query)
+    # print(query)
+    return query
 
 
 def query4_studentsFamiliar(topic):
@@ -71,7 +74,8 @@ def query4_studentsFamiliar(topic):
             f"                              exprop:completed_with ?grade ." \
             f"          FILTER (?grade >= 50)" \
             f"}}"
-    print(query)
+    # print(query)
+    return query
 
 
 # query1_courseDescription(subject="COMP", code="474")
