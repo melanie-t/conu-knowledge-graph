@@ -15,13 +15,15 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 SELECT ?courseName str(?grade) ?term ?year
 WHERE {
-  ?student exprop:enrolled_in ?course_enrolled ;
-           sch:name ?studentName ;
-           foaf:mail ?studentEmail ;
-           exprop:identified_by ?studentId .
-  ?course_enrolled course: ?course ; 
-                   exprop:completed_with ?grade ;
-                   exprop:enrolled_semester ?term ;
-                   exprop:enrolled_year ?year .
-  ?course rdfs:label ?courseName
+		?student 			sch:name|
+							foaf:mail|
+							exprop:identified_by		"Bianca Patry" ;
+				 			exprop:enrolled_in 			?course_enrolled .
+				 			
+  		?course_enrolled 	course: 					?course ; 
+                   			exprop:completed_with 		?grade ;
+                   			exprop:enrolled_semester 	?term ;
+                   			exprop:enrolled_year 		?year .
+
+  		?course 			rdfs:label 					?courseName .
 }

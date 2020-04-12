@@ -21,7 +21,7 @@ WHERE {
            sch:name ?studentName ;
            foaf:mail ?studentEmail ;
            exprop:identified_by ?studentId .
-  ?course_enrolled course: ?course .
-  ?course_enrolled exprop:completed_with ?grade .
+  ?course_enrolled 	course: ?course ;
+					exprop:completed_with ?grade .
   FILTER (?grade >= 50)
 }
