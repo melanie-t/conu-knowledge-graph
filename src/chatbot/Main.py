@@ -4,8 +4,8 @@ from rdflib import Graph
 
 def main():
     g = Graph()
-    output_file = "../rdfPopulator/output.ttl"
-    g.parse(output_file, format="turtle")
+    conu_schema = "../../output.ttl"
+    g.parse(conu_schema, format="turtle")
     print("Hi there, I am ConU ChatBot :)")
     while True:
 
