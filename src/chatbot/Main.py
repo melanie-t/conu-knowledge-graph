@@ -1,6 +1,7 @@
 from src.chatbot.inputParser import parseInput
 from rdflib import Graph
 
+
 def main():
     g = Graph()
     output_file = "../rdfPopulator/output.ttl"
@@ -29,7 +30,8 @@ def main():
             print(i , ":", result)
             i = i + 1
 
+
 if __name__ == "__main__":
-    main();
+    main()
 
 

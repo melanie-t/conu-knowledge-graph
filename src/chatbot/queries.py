@@ -29,7 +29,7 @@ def query1_courseDescription(subject, code):
 
 def query2_studentCourses(student):
     query = prefix + \
-            f"SELECT ?courseName str(?grade) ?term ?year " \
+            f"SELECT ?courseName ?grade ?term ?year " \
             f"WHERE {{" \
             f"          ?student 		    sch:name|" \
             f"							    foaf:mail|" \
