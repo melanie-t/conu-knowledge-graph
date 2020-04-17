@@ -27,7 +27,7 @@ def parseInput(questionInput):
                 query = query1_courseDescription(subject=tokenList[i], code=tokenList[i+1])
 
     # Q2
-    if 'do' in lemmaList and 'course' in lemmaList and 'take' in lemmaList:
+    elif 'do' in lemmaList and 'course' in lemmaList and 'take' in lemmaList:
         # print("Query 2")
         student = ''
         for i, pos in enumerate(posList):
@@ -40,7 +40,7 @@ def parseInput(questionInput):
         query = query2_studentCourses(student.strip())
 
     # Q3
-    if 'course' in lemmaList and 'cover' in lemmaList:
+    elif 'course' in lemmaList and 'cover' in lemmaList:
         # print("Query 3")
         topic = ''
         for i, pos in enumerate(posList):
@@ -49,12 +49,15 @@ def parseInput(questionInput):
         query = query3_courseTopics(topic.strip())
 
     # Q4
-    if 'who' in lemmaList and 'be' in lemmaList and 'familiar' in lemmaList:
+    elif 'who' in lemmaList and 'be' in lemmaList and 'familiar' in lemmaList:
         # print("Query 4")
         topic = ''
         for i, pos in enumerate(posList):
             if pos == 'PROPN':
                 topic = topic + tokenList[i] + " "
         query = query4_studentsFamiliar(topic.strip())
+
+    else:
+        raise
 
     return query
