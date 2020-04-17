@@ -1,3 +1,5 @@
+from src.chatbot.QueryOutput import QueryOutput
+
 prefix = "PREFIX course: <http://www.example.org/course/> " \
          "PREFIX dbo: <http://dbpedia.org/ontology/> " \
          "PREFIX dbp: <http://dbpedia.org/property/> " \
@@ -15,6 +17,7 @@ prefix = "PREFIX course: <http://www.example.org/course/> " \
 
 
 def query1_courseDescription(subject, code):
+    message = 'This is what the ' + subject + str(code) + ' is about:'
     query = prefix + \
            f"SELECT ?course_description " \
            f"WHERE {{ "\
@@ -24,10 +27,11 @@ def query1_courseDescription(subject, code):
            f"          	            sioc:about 		?course_description . " \
            f"}}"
     # print(query)
-    return query
+    return QueryOutput(1, query, message)
 
 
 def query2_studentCourses(student):
+    message = 'These are the courses that ' + student + ' took:'
     query = prefix + \
             f"SELECT ?courseName ?grade ?term ?year " \
             f"WHERE {{" \
@@ -42,10 +46,11 @@ def query2_studentCourses(student):
             f"  		?course 			rdfs:label 					?courseName ." \
             f"}}"
     # print(query)
-    return query
+    return QueryOutput(2, query, message)
 
 
 def query3_courseTopics(topic):
+    message = 'These are the following courses that cover ' + topic + ':'
     query = prefix + \
             f"SELECT ?courseName ?courseDescription " \
             f"WHERE {{  " \
@@ -57,12 +62,13 @@ def query3_courseTopics(topic):
             f"          OPTIONAL {{?course sioc:about ?courseDescription }}" \
             f"}}"
     # print(query)
-    return query
+    return QueryOutput(3, query, message)
 
 
 def query4_studentsFamiliar(topic):
+    message = 'These are the following students that are familiar with ' + topic + ':'
     query = prefix + \
-            f"SELECT ?studentName ?studentId ?studentEmail " \
+            f"SELECT DISTINCT ?studentName ?studentId ?studentEmail " \
             f"WHERE {{" \
             f"          ?topic              rdfs:label              \"{topic}\" ." \
             f"          ?course             sioc:topic              ?topic ." \
@@ -75,7 +81,7 @@ def query4_studentsFamiliar(topic):
             f"          FILTER (?grade >= 50)" \
             f"}}"
     # print(query)
-    return query
+    return QueryOutput(4, query, message)
 
 
 # query1_courseDescription(subject="COMP", code="474")
