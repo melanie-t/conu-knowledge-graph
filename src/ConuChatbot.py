@@ -12,7 +12,7 @@ def wrap(string, max_width):
 
 def main():
     g = Graph()
-    conu_schema = "../../output.ttl"
+    conu_schema = "../output.ttl"
     g.parse(conu_schema, format="turtle")
     print(colored("Hi there, I am ConU ChatBot :)", 'red'))
     while True:
