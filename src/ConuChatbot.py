@@ -7,7 +7,7 @@ from rdflib import Graph
 
 
 def wrap(string, max_width):
-    return '\n'.join(textwrap.wrap(string,max_width))
+    return '\n'.join(textwrap.wrap(string, max_width))
 
 
 def main():
@@ -15,11 +15,16 @@ def main():
     conu_schema = "../output.ttl"
     g.parse(conu_schema, format="turtle")
     print(colored("Hi there, I am ConU ChatBot :)", 'red'))
+    print(colored("Sample Questions\n"
+                  "\t What's COMP 474 about?\n"
+                  "\t Which courses did Bianca Patry take?\n"
+                  "\t Which courses cover Natural Language Processing?\n"
+                  "\t Who is familiar with Education?\n", 'yellow'))
     while True:
-        q1 = "What's COMP 474 about?"
-        q2 = "Which courses did Bianca Patry take?"
-        q3 = "Which courses cover Natural Language Processing?"
-        q4 = "Who is familiar with Education?"
+        # q1 = "What's COMP 474 about?"
+        # q2 = "Which courses did Bianca Patry take?"
+        # q3 = "Which courses cover Natural Language Processing?"
+        # q4 = "Who is familiar with Education?"
 
         questionInput = input(colored("What would you like to know? ", 'red'))
 
@@ -34,7 +39,7 @@ def main():
         results = Graph()
         results = g.query(query)
         print(colored(message, 'red'))
-        if(queryOutput.printQueryWithTable(results) == False):
+        if (queryOutput.printQueryWithTable(results) == False):
             i = 1
             for row in results:
                 result = ''
@@ -42,11 +47,9 @@ def main():
                     result = result + str(entry) + ' '
                 result = result + '\n'
                 stringRes = result
-                print(str(i), ': ' ,wrap(stringRes, 120), '\n')
+                print(str(i), ': ', wrap(stringRes, 120), '\n')
                 i = i + 1
 
 
 if __name__ == "__main__":
     main()
-
-
