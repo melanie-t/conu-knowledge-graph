@@ -1,7 +1,21 @@
+PREFIX course: <http://www.example.org/course/> 
+PREFIX dbo: <http://dbpedia.org/ontology/> 
+PREFIX dbp: <http://dbpedia.org/property/> 
+PREFIX exprop: <http://www.example.org/property/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> 
+PREFIX sch: <http://schema.org/> 
+PREFIX sioc: <http://rdfs.org/sioc/ns#> 
+PREFIX student: <http://www.example.org/student/> 
+PREFIX topic: <http://www.example.org/topic/> 
+PREFIX xml: <http://www.w3.org/XML/1998/namespace> 
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
 SELECT  ?completed_course ?grade ?course_label 
 WHERE {
     ?student a student:Student .
-    ?student exprop:identified_by "{student_id}" .
+    ?student exprop:identified_by "422222" .
     ?student exprop:enrolled_in ?completed_course .
     ?completed_course exprop:completed_with ?grade .
     OPTIONAL { ?completed_course rdfs:label ?course_label }

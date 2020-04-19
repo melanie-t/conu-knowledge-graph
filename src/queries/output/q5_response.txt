@@ -1,0 +1,3 @@
+http://www.example.org/student/bianca@concordia.ca
+http://www.example.org/student/julie@snyder.com
+http://www.example.org/student/roger@moores.ca

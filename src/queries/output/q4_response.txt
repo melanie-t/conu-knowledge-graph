@@ -1,3 +1,4 @@
-http://www.example.org/course/AHSC/400/bob123@gmail.com/WINTER/2018 90 None 
-http://www.example.org/course/UNSS/200/bob123@gmail.com/FALL/2012 88 None 
-http://www.example.org/course/ADED/202/bob123@gmail.com/SUMMER/2015 75 None 
+http://www.example.org/course/COMP/326/frank@outlook.com/FALL/2010  32
+http://www.example.org/course/SSDB/428/frank@outlook.com/WINTER/2008  43
+http://www.example.org/course/ADED/202/frank@outlook.com/FALL/2014  55
+http://www.example.org/course/COMP/472/frank@outlook.com/FALL/2010  81

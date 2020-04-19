@@ -1,4 +1,5 @@
 http://dbpedia.org/resource/Comm Comm 
 http://dbpedia.org/resource/Technology Technology 
-http://dbpedia.org/resource/Marketing_management Marketing Management 
+http://dbpedia.org/resource/Marketing Market
 http://dbpedia.org/resource/Marketing Marketing 
+http://dbpedia.org/resource/Marketing_management Marketing Management 
