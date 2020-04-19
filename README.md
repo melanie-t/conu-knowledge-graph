@@ -12,14 +12,14 @@ The purpose of this project is to create a chatbot for Concordia University that
 3. Run ```server_2_init.sh``` to start the server.</br>
 4. (Optional) When the server has been initialized, run ```server_3_test.sh``` to test that the server is running. It should return annotations.</br>
 
-## Setting up the Project
+## Setting up the Project using Virtual Environment (venv)
 1. Clone the repository
-2. Navigate to COMP474_A1_W20\venv\pyvenv.cfg
-	Change home directory to your Python installation </br>
+2. Navigate to conu-knowledge-graph\venv\pyvenv.cfg
+	* Change home directory to your Python installation </br>
     (Ex: home=C:\Program Files\Python38)
-3. Open the COMP474_A1_W20 folder as a PyCharm folder
+3. Open the conu-knowledge-graph folder as a PyCharm folder
 4. Add an existing interpreter </br>
-	File -> Settings -> Project: COMP474_A1_W20 -> Project Interpreter -> Top right cog -> Add -> Virtualenv Environment -> Existing Environment -> [...] -> [...]\COMP474_A1_W20\venv\Scripts\python.exe (Navigate to project repo)
+	File -> Settings -> Project: conu-knowledge-graph -> Project Interpreter -> Top right cog -> Add -> Virtualenv Environment -> Existing Environment -> [...] -> [...]\conu-knowledge-graph\venv\Scripts\python.exe
 
 ## Modules
 The courseExtraction module gets all the HTML pages from the Concordia website (`CourseDataCollector.py`). It then parses the data (the htmls) to extract the courses from each web page (`CourseExtractionMain.py`). Then, we can reach for these courses as a 'Course' object list from the script `CourseExtractorFromTxt.py`.
