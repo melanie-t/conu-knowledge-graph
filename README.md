@@ -38,4 +38,4 @@ The rdfPopulator module create the RDF schema using the Turtle format. The scrip
 	2.	Which courses did Bianca Patry take?
 	3.	Which courses cover Natural Language Processing?
 	4.	Who is familiar with Education?
-3. The results are outputted after querying our knowledge graph (`output.ttl`)
+3. The results are outputted after querying our knowledge graph
