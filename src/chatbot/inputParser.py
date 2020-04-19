@@ -1,5 +1,5 @@
 import spacy
-from src.chatbot.queries import query1_courseDescription, query2_studentCourses, query3_courseTopics, query4_studentsFamiliar
+from src.chatbot.QueryCreator import query1_courseDescription, query2_studentCourses, query3_courseTopics, query4_studentsFamiliar
 
 
 def parseInput(questionInput):

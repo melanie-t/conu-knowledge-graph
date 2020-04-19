@@ -2,11 +2,13 @@ from pyparsing import ParseException
 import textwrap
 
 from termcolor import colored
-from src.chatbot.inputParser import parseInput
+from src.chatbot.InputParser import parseInput
 from rdflib import Graph
+
 
 def wrap(string, max_width):
     return '\n'.join(textwrap.wrap(string,max_width))
+
 
 def main():
     g = Graph()

@@ -1,4 +1,6 @@
 from prettytable import PrettyTable
+
+
 class QueryOutput:
     def __init__(self, queryNumber, query, message):
         self.queryNumber = queryNumber
